@@ -2,6 +2,8 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import {setToken} from '../redux/userSlice'
 
 const Login = () => {
    const [email,setEmail] = useState("")
@@ -9,6 +11,8 @@ const Login = () => {
    const [role,setRole] = useState('')
 
    const navigate = useNavigate()
+   const dispatch = useDispatch()
+
    const handleEmail = (e) => {
     setEmail(e.target.value)
    }
@@ -23,16 +27,18 @@ const Login = () => {
 
    const loginhandle = async(e) => {
    e.preventDefault()
+   try {
    const payload = {
     email : email,
     password : password,
     role : role
    }
-   try {
+   
     const res = await axios.post("https://safespace-zjkg.onrender.com/login",payload)
-   toast.success(res.data.message)
-   console.log(res.data.message)
-  navigate('/disaster')
+    localStorage.setItem('token',res.data.token)
+    toast.success(res.data.message)
+    dispatch(setToken(res.data.token))
+    navigate('/disaster') 
 }
    catch(error){
     toast.error(error.response.data.message)

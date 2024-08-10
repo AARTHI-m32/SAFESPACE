@@ -9,9 +9,22 @@ import About from "./components/About";
 import Register from "./components/Register";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setToken } from "./redux/userSlice";
+import Disasterform from "./components/Disasterform";
+//import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
 
 //https://safespace-zjkg.onrender.com
 const App = () => {
+
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    const token=localStorage.getItem('token')
+    if(token)
+    dispatch(setToken(token))
+  },[setToken])
 
   return (    
     <BrowserRouter>
@@ -25,6 +38,8 @@ const App = () => {
       <Route path="/remainder" element={<Remainder/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
+      <Route path="/disasterform" element={<Disasterform/>}/>
+     
     </Routes>
     </BrowserRouter>
 

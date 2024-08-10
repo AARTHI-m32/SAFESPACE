@@ -30,6 +30,7 @@ const Register = () => {
     try{
      const res = await axios.post("https://safespace-zjkg.onrender.com/register",payload)
      toast.success(res.data.message)
+     
      navigate("/login")
     }
     catch(error){

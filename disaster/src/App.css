@@ -1,0 +1,210 @@
+#home{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    font-size: 18px;
+    font-family: cursive;
+  }
+  .image{
+    width:100%;
+    height:730px;
+    filter:brightness(0.3);
+    display: block;
+  }
+  #homenav{
+      position: absolute;
+      top:1%;  
+      padding-top: 5px;
+      color:bisque;    
+   
+  }
+  #headernav{
+      padding: 7px;
+      color:bisque;    
+      background-color: black;
+      font-family: cursive;
+      font-size: 18px;
+  }
+  #homelogo{
+    margin-right: 900px;
+    margin-left: 30px;
+    font-size: 20px;
+  }
+  #headerlogo{
+    margin-right: 450px;
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  .navhome{
+    padding-top: 5px;
+    float:right;
+    color: beige;
+    text-decoration: none;
+    padding-left:60px;
+    padding-right: 5px;
+  }
+  #hometext{
+    position: absolute;
+    font-size: 30px;
+    top:35%;
+    left:10%;
+    color: beige;
+  }
+  #hometext button{
+    font-size: 28px;
+    background-color: orangered;
+    border-radius: 5px;
+    padding: 5px;
+    color: black;
+  }
+  
+  
+  #logindiv{
+    background-color: rgb(243, 91, 36);
+    border-radius: 5px;
+    position: absolute;
+    width:25%;
+    height: 480px;
+    padding-left: 70px;
+    font-size: 22px;
+    font-family: cursive;
+    top:18%;
+    left:35%;
+  }
+  .login{
+  
+  height:730px;
+  position: relative;
+  width: 100%;
+  }
+  
+  #lhead{
+     padding-left: 40px;
+     color:burlywood;
+     font-size: 32px;
+  }
+  
+  .linput{
+    margin-left: 0px;
+    height: 30px;
+    margin-bottom: 15px;
+    width: 300px;
+    border-radius: 5px;
+  }
+  #lbutton{
+    margin-left: 75px;
+    margin-top: 20px;
+    width:150px;
+    height: 45px;
+    font-size: 25px;
+    font-family: cursive;
+    border-radius: 5px;
+    background-color: black;
+    color:orangered
+  }
+  #lspan{
+    font-size:16px;
+    padding-left: 30px;
+  }
+  #lreg{
+    text-decoration: none;
+    color:burlywood;
+  }
+  
+  #registerdiv{
+    background-color: rgb(232, 93, 43);
+    border-radius: 5px;
+    position: absolute;
+    width:25%;
+    height: 500px;
+    padding-left: 70px;
+    font-size: 22px;
+    font-family: cursive;
+    top:17%;
+    left:35%;
+  }
+  
+  
+  #disaster{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+  }
+  #disaster-head{
+    margin: 0px;
+    text-align: center;
+    font-size: 30px;
+    color:lavenderblush;
+    padding: 5px;
+    background-color:darkgray;
+    font-family: cursive;
+  }
+  .disaster-card{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 10px;
+    flex-direction: column;
+    width:300px;
+    height:300px;
+    border:2px solid black;
+  }
+
+
+
+  /* Ensure the modal dialog is centered */
+.modal-dialog {
+    display: flex;
+    align-items: center; /* Vertically center the modal */
+    justify-content: center; /* Horizontally center the modal */
+    min-height: calc(100% - 1rem); /* Optional: To ensure full viewport height */
+  }
+  
+  /* Optional: Adjust the modal-content margins for more fine-tuning */
+  .modal-content {
+    margin: auto; /* Center the content */
+  }
+
+  /* Blur the background overlay */
+.custom-modal .modal-backdrop {
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    /* Optional: Use rgba to add a semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  }
+  
+  /* Ensure the modal dialog is centered */
+  .custom-modal .modal-dialog {
+    display: flex;
+    align-items: center; /* Vertically center the modal */
+    justify-content: center; /* Horizontally center the modal */
+  }
+  
+  /* Optional: Adjust the modal-content margins for more fine-tuning */
+  .custom-modal .modal-content {
+    margin: auto; /* Center the content */
+  }
+  
+  /* Ensure the modal dialog is centered */
+.custom-modal .modal-dialog {
+    display: flex;
+    align-items: center; /* Vertically center the modal */
+    justify-content: center; /* Horizontally center the modal */
+    margin: 0; /* Remove default margins */
+    position: relative; /* Ensure correct stacking */
+  }
+  
+  /* Style the modal content */
+  .custom-modal .modal-content {
+    margin: auto; /* Center the content */
+    position: relative; /* Ensure modal content stays on top */
+    z-index: 1050; /* Bootstrap default z-index for modal */
+  }
+  
+  /* Blur the background overlay */
+  .custom-modal .modal-backdrop {
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: Semi-transparent dark overlay */
+    z-index: 1040; /* Bootstrap default z-index for backdrop */
+  }
+  

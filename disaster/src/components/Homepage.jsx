@@ -1,21 +1,12 @@
 
 import Header from "./Header"
 import { Link } from "react-router-dom";
-import Modal from 'react-modal';
+
 import { useState } from "react";
 
-Modal.setAppElement('#root');
-const  Homepage = () => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    const openModal = () => setModalIsOpen(true);
-    const closeModal = () => setModalIsOpen(false);
-  
-    const handleLogin = (event) => {
-      event.preventDefault();
-      // Handle login logic here
-      closeModal();
-    };
+const  Homepage = () => {
+   
     return(
        <>
        <div id="home">
@@ -32,38 +23,10 @@ const  Homepage = () => {
                     post here and get help from Volunteers!!
                 </p>
              
-              <Link to="/about"><button onClick={openModal}>Get Started</button></Link>
+              <Link to="/disaster"><button>Get Started</button></Link>
             </div>
 
-            <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Login Modal"
-        style={{
-          content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-          },
-        }}
-      >
-        <h2>Login</h2>
-        <button onClick={closeModal}>Close</button>
-        <form onSubmit={handleLogin}>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input type="text" id="username" name="username" required />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <button type="submit">Login</button>
-        </form>
-      </Modal>
+          
        </div>
        </>
     )
