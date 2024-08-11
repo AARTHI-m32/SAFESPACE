@@ -48,7 +48,7 @@ const Login = () => {
   return(
     <div className="login">
       <img src="./images/login.avif" className="image"/>
-    <div id="logindiv">
+    <div className="logindiv">
 
       <h2 id="lhead">Welcome Back!</h2>
        <label htmlFor="name" className="llabel">Email</label><br/>

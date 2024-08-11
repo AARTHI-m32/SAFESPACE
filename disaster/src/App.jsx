@@ -13,7 +13,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setToken } from "./redux/userSlice";
 import Disasterform from "./components/Disasterform";
-//import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 //https://safespace-zjkg.onrender.com
@@ -24,7 +24,7 @@ const App = () => {
     const token=localStorage.getItem('token')
     if(token)
     dispatch(setToken(token))
-  },[setToken])
+  },[])
 
   return (    
     <BrowserRouter>

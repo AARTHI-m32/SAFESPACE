@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { addToMyList } from '../redux/remainderSlice';
 
 const Disastercard = (props) => {
+    console.log(props.disaster)
     const dispatch = useDispatch();
 console.log(props.disaster)
     const handleAdd = () => {
@@ -11,19 +12,24 @@ console.log(props.disaster)
   const lng=props.disaster.location.coordinates[1]
     const latitude = 37.7749;
     const longitude = -122.4194;
-    const googleMapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
+    const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
     return (
         <div className="disaster-card">
-          <h3>{props.disaster.name}</h3>
-          <h3>{props.disaster.disastertype}</h3>
-          <h3>{props.disaster.city}</h3>
-          <p>{props.disaster.contactinfo}</p>
-          <p>{props.disaster.Date}</p>
-          <p>Click the coordinates below to view the location on Google Maps:</p>
+         
+          <h4><b>Disaster Type : </b>{props.disaster.disastertype}</h4>
+          <span><b>Place : </b>{props.disaster.city}</span>
+          <span><b>Requirements : </b><br/>{props.disaster.description}</span>
+          <span><b>Contact Information : </b><br/> {props.disaster.contactinfo}</span>
+          <span><b>Date : </b>{props.disaster.date}</span>
+          <span><b>Location : </b><br/></span>
+          <span>Click the coordinates below to view the location on Google Maps:</span>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                {latitude}, {longitude}
+                {lng} {lat}
             </a>
+
+            <span id="author">Posted by,<br/> {props.disaster.name}</span>
         <button onClick={handleAdd}>Add to My List</button>
+        <button>Volunteer</button>
         </div>
     );
 };

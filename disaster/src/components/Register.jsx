@@ -40,7 +40,7 @@ const Register = () => {
   return(
     <div className="login">
       <img src="./images/register.jpg" className="image"/>
-    <div id="registerdiv">
+    <div className="registerdiv">
 
       <h2 id="lhead">Create Account!</h2>
        <label htmlFor="name" className="llabel">Username</label><br/>

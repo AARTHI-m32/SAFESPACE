@@ -10,7 +10,7 @@ const AddDisasterForm = () => {
     disastertype: '',
     city: '',
     locationType: 'Point',
-    coordinates: [20.5937, 78.9629], // Default coordinates for India
+    coordinates: [], // Default coordinates for India
     description: '',
     contactinfo: '',
     date: '',
@@ -79,7 +79,7 @@ const AddDisasterForm = () => {
         disastertype: '',
         city: '',
         locationType: 'Point',
-        coordinates: [20.5937, 78.9629], // Reset to default coordinates for India
+        coordinates: [] ,// Reset to default coordinates for India
         description: '',
         contactinfo: '',
         date: '',
@@ -92,51 +92,44 @@ const AddDisasterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='disaster-form'>
+      <div className='form'>
       <div>
-        <label>ID:</label>
-        <input type="text" name="id" value={formData.id} onChange={handleChange} required />
+        <label>Name:</label><br/>
+        <input type="text" name="name" value={formData.name} onChange={handleChange} id="name" required />
       </div>
       <div>
-        <label>User ID:</label>
-        <input type="text" name="userid" value={formData.userid} onChange={handleChange} required />
+        <label>Disaster Type:</label><br/>
+        <input type="text" name="disastertype" value={formData.disastertype} onChange={handleChange} id="type" required />
       </div>
       <div>
-        <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+        <label>City:</label><br/>
+        <input type="text" name="city" value={formData.city} onChange={handleChange} id="city" required />
       </div>
       <div>
-        <label>Disaster Type:</label>
-        <input type="text" name="disastertype" value={formData.disastertype} onChange={handleChange} required />
+        <label>Description:</label><br/>
+        <textarea name="description" value={formData.description} onChange={handleChange} id="description" />
       </div>
       <div>
-        <label>City:</label>
-        <input type="text" name="city" value={formData.city} onChange={handleChange} required />
+        <label>Contact Info:</label><br/>
+        <input type="text" name="contactinfo" value={formData.contactinfo} onChange={handleChange} id="contact" required />
       </div>
       <div>
-        <label>Description:</label>
-        <textarea name="description" value={formData.description} onChange={handleChange} />
+        <label>Date:</label><br/>
+        <input type="date" name="date" value={formData.date} onChange={handleChange} required id="date" />
       </div>
       <div>
-        <label>Contact Info:</label>
-        <input type="text" name="contactinfo" value={formData.contactinfo} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Date:</label>
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-      </div>
-      <div>
-        <label>Status:</label>
-        <input type="text" name="status" value={formData.status} onChange={handleChange} />
+        <label>Status:</label><br/>
+        <input type="text" name="status" value={formData.status} onChange={handleChange} id="status" />
       </div>
 
       <div>
-        <label>Coordinates:</label>
-        <input type="text" name="coordinates" value={formData.coordinates.join(', ')} readOnly />
-        <button type="button" onClick={handleGetCurrentLocation}>
+        <label>Coordinates:</label><br/>
+        <input type="text" name="coordinates" value={formData.coordinates.join(', ')} id="coordinates" readOnly /><br/>
+        <button type="button" onClick={handleGetCurrentLocation} id="current-button">
           Use Current Location
         </button>
-        <button type="button" onClick={() => setShowMap(!showMap)}>
+        <button type="button" onClick={() => setShowMap(!showMap)} id="choose-button">
           {showMap ? 'Hide Map' : 'Choose Location'}
         </button>
       </div>
@@ -154,9 +147,10 @@ const AddDisasterForm = () => {
         </div>
       )}
 
-      <button type="submit" style={{ marginTop: '20px' }}>
+      <button type="submit" style={{ marginTop: '20px' }} id="dis-submit">
         Submit
       </button>
+      </div>
       
     </form>
   );

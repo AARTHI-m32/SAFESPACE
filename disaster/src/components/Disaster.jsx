@@ -14,9 +14,11 @@ const Disaster = () => {
     const handleShow = () => setShow(true);
 
     const token = useSelector((state) => state.user.token)
-   useEffect(()=>{
-    getdisaster();
-   },[])
+    useEffect(() => {
+        if (token) {
+            getdisaster();
+        }
+    }, [token]);
 
    const getdisaster = async() => {
     const res= await axios.get("https://safespace-zjkg.onrender.com/disaster/getalldisaster",{
@@ -30,20 +32,22 @@ const Disaster = () => {
     return (
         <div>
             <Header/>       
+            
+            
+            
             <h2 id="disaster-head">Disaster Information</h2>
-            <button onClick={handleShow}><h2>post</h2></button>
             <div id="disaster">
                {disaster.map((disaster) => <Disastercard key={disaster.id} disaster={disaster}/>)}
             </div>
 
             <Modal show={show} onHide={handleClose} className='custom-modal'>
-                <Modal.Header >
+                <Modal.Header id="modalhead">
                     <Modal.Title>Post a Disaster</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body id="modalform">
                     <DisasterForm />
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer id="modalfoot">
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
