@@ -15,7 +15,8 @@ const addDisaster = async(req,res) => {
                 coordinates: [req.body.longitude, req.body.latitude],
               },
             descripton : req.body.description,
-            date : Date.now(),
+            date : req.body.date,
+            time : req.body.time,
             contactinfo : req.body.contact
         })
         res.status(201).json({

@@ -14,6 +14,7 @@ const Disastercard = (props) => {
 
     const dispatch = useDispatch();
 console.log(props.disaster)
+
 const token = useSelector((state) => state.user.token)
 const handleAdd = async() => {
     console.log("item added")
@@ -31,6 +32,7 @@ const handleAdd = async() => {
     dispatch(addToMyList(props.disaster));
  
 }
+       
 
   const lat=props.disaster.location.coordinates[0]
   const lng=props.disaster.location.coordinates[1]
@@ -44,6 +46,7 @@ const handleAdd = async() => {
           <span><b>Requirements : </b><br/>{props.disaster.description}</span>
           <span><b>Contact Information : </b><br/> {props.disaster.contactinfo}</span>
           <span><b>Date : </b>{props.disaster.date}</span>
+          <span><b>Date : </b>{props.disaster.time}</span>
           <span><b>Location : </b><br/></span>
           <span>Click the coordinates below to view the location on Google Maps:</span>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
@@ -56,7 +59,7 @@ const handleAdd = async() => {
 
         <Modal show={show} onHide={handleClose} className='volunteer-modal'>
                 <Modal.Header id="modalhead">
-                    <Modal.Title>Post a Disaster</Modal.Title>
+                    <Modal.Title>Become a Volunteer!!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body id="modalform">
                     <VolunteerForm disasterid={props.disaster.id}/>

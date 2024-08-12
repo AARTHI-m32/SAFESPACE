@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
+import { useSelector } from 'react-redux';
 
 const AddDisasterForm = () => {
   const [formData, setFormData] = useState({
-    id: '',
-    userid: '',
     name: '',
     disastertype: '',
     city: '',
     locationType: 'Point',
-    coordinates: [], // Default coordinates for India
+    coordinates: [20.5937, 78.9629], 
     description: '',
     contactinfo: '',
     date: '',
-    status: 'Emergency',
+    time : '',
+    status: '',
   });
+
+  const token = useSelector((state) => state.user.token)
 
   const [showMap, setShowMap] = useState(false);
 
@@ -61,30 +63,28 @@ const AddDisasterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const dataToSubmit = {
-      ...formData,
-      location: {
-        type: formData.locationType,
-        coordinates: formData.coordinates,
-      },
-    };
 
     try {
-      await axios.post('/api/disasters', dataToSubmit);
-      alert('Disaster information submitted successfully!');
-      setFormData({
-        id: '',
-        userid: '',
-        name: '',
-        disastertype: '',
-        city: '',
-        locationType: 'Point',
-        coordinates: [] ,// Reset to default coordinates for India
-        description: '',
-        contactinfo: '',
-        date: '',
-        status: 'Emergency',
-      });
+      const payload={
+          "name" : formData.name,
+          "disastertype" : formData.disastertype,
+          'coordinates' : formData.coordinates,
+          "city" : formData.city,
+          "description" : formData.description,
+          "contact": formData.contactinfo,
+          "date": formData.date,
+          "time" : formData.time,
+          "status": formData.status,
+      }
+      
+        const disaster = await axios.post(`https://safespace-zjkg.onrender.com/disaster/adddisaster`,payload,
+            {
+                headers : { 
+                    Authorization : `Bearer ${token}`
+                }}
+        )
+       console.log("Disaster registered")
+    
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
@@ -117,6 +117,10 @@ const AddDisasterForm = () => {
       <div>
         <label>Date:</label><br/>
         <input type="date" name="date" value={formData.date} onChange={handleChange} required id="date" />
+      </div>
+      <div>
+        <label>Time:</label><br/>
+        <input type="time" name="time" value={formData.time} onChange={handleChange} required id="time" />
       </div>
       <div>
         <label>Status:</label><br/>

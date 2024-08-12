@@ -174,10 +174,8 @@
   text-align: right;
  }
   #post-text{
-   
-    text-align: center;
+      text-align: center;
     background-color: orangered;
-
     color:beige;
    font-size: 18px;
    padding: 8px;
@@ -194,18 +192,16 @@
 
 .custom-modal{
   margin-top: 50px;  
+  margin-bottom: 100px;
 }
 #modalhead ,#modalfoot{
-  background-color:burlywood
+  background-color:rgb(245, 237, 237);
 }
 
 #modalform{
-  background-color: burlywood;
+  background-color:rgb(222, 218, 218);
+}
 
-}
-.disaster-form{
-  background-color: black;
-}
 .disaster-form label {
   width: 30px;
 }
@@ -235,19 +231,17 @@ width: 50%;
   width: 50%;
 }
 #dis-submit{
-  width:150px;
-  height: 40px;
-  font-size: 20px;
-  font-family: cursive;
+  width: 20%;
+  height :40px;
+  background-color: orangered;
+  color:white;
   border-radius: 5px;
-  color:orangered;
-  background-color: beige;
+  margin-top: 10px;
 }
 #choose-button{
   width:220px;
   height: 30px;
-  font-size: 18px;
-  
+  font-size: 18px; 
   border-radius: 5px;
   margin :5px;
 }
@@ -257,12 +251,37 @@ width: 50%;
   font-size: 18px;
   margin :5px;
   border-radius: 5px;
-  
 }
 .form{
-  background-color: burlywood;
+  background-color:rgb(222, 218, 218);
 }
 
 .volunteer-modal{
-  margin-top: 110px;
+  margin-top: 120px;
+  width:40%;
+  margin-left: 450px;
+
+}
+.volunteer-form input[type="text"],
+.volunteer-form input[type="number"]
+{
+  width: 40%;
+}
+.volunteer-form button{
+  width: 20%;
+  background-color: orangered;
+  color:white;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.volunteer-modal #modalhead{
+  font-size: 18px;
+  font-family: cursive;
+  background-color:rgb(245, 237, 237);
+}
+.volunteer-modal #modalhead,#modalfoot{
+  background-color:rgb(245, 237, 237);
+}
+.volunteer-modal #modalform{
+  background-color:rgb(222, 218, 218);
 }

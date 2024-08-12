@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-
-const VolunteerForm = () => {
+import axios from 'axios';
+const VolunteerForm = (props) => {
 
     const [formData, setFormData] = useState({
         name: '',
@@ -11,7 +11,7 @@ const VolunteerForm = () => {
         agreement: false
     });
    const token = useSelector((state) => state.user.token)
-   
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -22,22 +22,21 @@ const VolunteerForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        payload = {
+       const payload = {
             "name" : formData.name,
             "age" : formData.age,
             "phoneno" : formData.phoneno,
             "role": formData.role,
-            "agreement": formData.agreement
-        
+            "agreement": formData.agreement       
         }
         try{
-            const volunteer = await axios.post('https://safespace-zjkg.onrender.com/volunteer/addvolunteer',payload,
+            const volunteer = await axios.post(`https://safespace-zjkg.onrender.com/volunteer/addvolunteer/${props.disasterid}`,payload,
                 {
                     headers : { 
                         Authorization : `Bearer ${token}`
                     }}
             )
-
+           console.log("volunteer registered")
         }
     catch(error){
         console.error('Error submitting form:', error);
@@ -45,7 +44,7 @@ const VolunteerForm = () => {
     }
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="volunteer-form">
             <div>
                 <label>Name:</label><br/>
                 <input 
@@ -59,13 +58,11 @@ const VolunteerForm = () => {
             <div>
                 <label>Age:</label><br/>
                 <input 
-                    type="number"  name="age"
-                    value={formData.age} onChange={handleChange}  min="18" max="50" />
+                    type="number"  name="age" value={formData.age} onChange={handleChange}  min="18" max="50" />
             </div>
             <div>
             <label htmlFor="role">Select a Role:</label><br/>
               <select id="role" name="role" value={formData.role} onChange={handleChange}>
-                 <option value="">--Choose a Role--</option>
                  <option value="Medical Aid">Medical Aid</option>
                  <option value="Search and Rescue">Search and Rescue</option>
                  <option value="Logistics and Supply Distribution">Logistics and Supply Distribution</option>
@@ -80,8 +77,7 @@ const VolunteerForm = () => {
             </div>
             <div>
                 <label>
-                    <input 
-                        type="checkbox" name="agreement" checked={formData.agreement} onChange={handleChange}  />
+                    <input type="checkbox" name="agreement" checked={formData.agreement} onChange={handleChange}  />
                     I agree to the terms and conditions
                 </label> <br/>
             </div>

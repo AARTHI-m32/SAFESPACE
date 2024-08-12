@@ -29,6 +29,9 @@ const disasterSchema = new mongoose.Schema({
     date : {
         type : Date
     },
+    time : {
+        type : String
+    },
     status : {
         type : String,
         default : "Emergency"
