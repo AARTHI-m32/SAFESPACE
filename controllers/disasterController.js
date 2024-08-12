@@ -12,9 +12,9 @@ const addDisaster = async(req,res) => {
             city : req.body.city,
             location: {
                 type: 'Point',
-                coordinates: [req.body.coordinates],
-              },
-            descripton : req.body.description,
+                coordinates: req.body.coordinates,  // Expecting [longitude, latitude]
+            },
+            description : req.body.description,
             date : req.body.date,
             time : req.body.time,
             contactinfo : req.body.contact
