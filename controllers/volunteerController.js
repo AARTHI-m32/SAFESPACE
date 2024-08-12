@@ -12,7 +12,7 @@ const addvolunteer = async(req,res) => {
             age : req.body.age,
             phoneno : req.body.phoneno,
             role : req.body.role,
-            agreement : "true"
+            agreement : req.body.agreement
         })
         res.status(200).json({
             message : "volunteer created",

@@ -6,6 +6,7 @@ const Remainder = () => {
    const remainderList = useSelector(state => state.remainder.myList)
    console.log("remainder",remainderList)
 
+
     return(
         <div>
          <Header/>

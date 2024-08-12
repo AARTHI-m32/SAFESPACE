@@ -6,6 +6,7 @@ import Header from './Header';
 import axios from 'axios'
 import { useSelector } from 'react-redux';
 
+
 const Disaster = () => {
     const [disaster, setDisaster] = useState([]); 
     const [show, setShow] = useState(false);
@@ -31,11 +32,13 @@ const Disaster = () => {
    }
     return (
         <div>
-            <Header/>       
-            
-            
-            
+            <Header/>                
             <h2 id="disaster-head">Disaster Information</h2>
+            <div id="post-text">
+                <p>Are You in an emergency ? Wan to seek help from Volunteers ? You can now post about the situation and seek help !!</p>
+            <button onClick={handleShow}><span>Click Me</span></button>
+            </div>
+        
             <div id="disaster">
                {disaster.map((disaster) => <Disastercard key={disaster.id} disaster={disaster}/>)}
             </div>
@@ -53,6 +56,8 @@ const Disaster = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
+
+           
         </div>
     );
 };

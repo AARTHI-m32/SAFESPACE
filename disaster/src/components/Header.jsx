@@ -1,12 +1,31 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setList } from '../redux/remainderSlice';
+import axios from 'axios';
 const Header = () => {
     const myList = useSelector(state => state.remainder.myList);
     const token = useSelector((state) => state.user.token)
     console.log(myList)
 
- 
+    const dispatch = useDispatch()
+
+  
+
+    useEffect(()=>{
+      if(token)
+        listremainder()
+      },[token])
+
+      const listremainder = async() => {
+        const res=await axios.get("https://safespace-zjkg.onrender.com/remainder/getallremainder",{
+          headers : { 
+            Authorization : `Bearer ${token}`
+        }})
+      
+        console.log("get remainder",res.data)
+        dispatch(setList(res.data))
+      }
 
     return(
         <>

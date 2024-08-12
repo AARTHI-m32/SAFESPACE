@@ -2,9 +2,6 @@
 import Header from "./Header"
 import { Link } from "react-router-dom";
 
-import { useState } from "react";
-
-
 const  Homepage = () => {
    
     return(
