@@ -7,10 +7,11 @@ import Remainder from "./components/Remainder";
 import Login from "./components/Login";
 import About from "./components/About";
 import Register from "./components/Register";
+import Profile from "./components/Profile"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { Profiler, useEffect } from "react";
 import { setToken } from "./redux/userSlice";
 import Disasterform from "./components/Disasterform";
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -39,7 +40,7 @@ const App = () => {
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/disasterform" element={<Disasterform/>}/>
-     
+      <Route path="/profile" element={<Profile/>}/>
     </Routes>
     </BrowserRouter>
 

@@ -3,13 +3,12 @@ import axios from 'axios';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 
-const DisasterForm = () => {
+const AddDisasterForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     disastertype: '',
     city: '',
-    locationType: 'Point',
-    coordinates: [20.5937, 78.9629], 
+    coordinates: [78.9629, 20.5937], // Default coordinates [longitude, latitude] (India's center)
     description: '',
     contactinfo: '',
     date: '',
@@ -18,6 +17,7 @@ const DisasterForm = () => {
   });
 
   const token = useSelector((state) => state.user.token);
+
   const [showMap, setShowMap] = useState(false);
 
   const handleGetCurrentLocation = () => {
@@ -26,7 +26,7 @@ const DisasterForm = () => {
         const { latitude, longitude } = position.coords;
         setFormData((prevData) => ({
           ...prevData,
-          coordinates: [latitude, longitude],
+          coordinates: [longitude, latitude], // Set as [longitude, latitude]
         }));
       },
       (error) => {
@@ -38,10 +38,10 @@ const DisasterForm = () => {
 
   const handleMapClick = (e) => {
     const { lat, lng } = e.latlng;
-    setFormData((prevData) => ({
-      ...prevData,
-      coordinates: [lat, lng],
-    }));
+    setFormData({
+      ...formData,
+      coordinates: [lng, lat], // Set as [longitude, latitude]
+    });
     setShowMap(false); // Hide map after selecting location
   };
 
@@ -62,30 +62,34 @@ const DisasterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try { 
+    try {
       const payload = {
         name: formData.name,
         disastertype: formData.disastertype,
-        location: formData.coordinates,
         city: formData.city,
+        coordinates: formData.coordinates, // Send coordinates as [longitude, latitude]
         description: formData.description,
         contact: formData.contactinfo,
         date: formData.date,
         time: formData.time,
-        status: formData.status,
+        status: formData.status || 'Emergency',
       };
-      
-      await axios.post(`https://safespace-zjkg.onrender.com/disaster/adddisaster`, payload, {
-        headers: { 
-          Authorization: `Bearer ${token}`,
-        }
-      });
 
-      console.log("Disaster registered");
+      await axios.post(
+        'https://safespace-zjkg.onrender.com/disaster/adddisaster',
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log('Disaster registered');
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
     }
+    window.location='/disaster'
   };
 
   return (
@@ -93,62 +97,108 @@ const DisasterForm = () => {
       <div className='form'>
         <div>
           <label>Name:</label><br/>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} id="name" required />
+          <input  type="text"  name="name"  value={formData.name} onChange={handleChange}  required/>
         </div>
         <div>
           <label>Disaster Type:</label><br/>
-          <input type="text" name="disastertype" value={formData.disastertype} onChange={handleChange} id="type" required />
+          <input
+            type="text"
+            name="disastertype"
+            value={formData.disastertype}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>City:</label><br/>
-          <input type="text" name="city" value={formData.city} onChange={handleChange} id="city" required />
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Description:</label><br/>
-          <textarea name="description" value={formData.description} onChange={handleChange} id="description" />
+          <textarea id="textarea"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Contact Info:</label><br/>
-          <input type="text" name="contactinfo" value={formData.contactinfo} onChange={handleChange} id="contact" required />
+          <input
+            type="text"
+            name="contactinfo"
+            value={formData.contactinfo}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Date:</label><br/>
-          <input type="date" name="date" value={formData.date} onChange={handleChange} required id="date" />
+          <input
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Time:</label><br/>
-          <input type="time" name="time" value={formData.time} onChange={handleChange} required id="time" />
+          <input
+            type="time"
+            name="time"
+            value={formData.time}
+            onChange={handleChange}
+            required
+          />
         </div>
         <div>
           <label>Status:</label><br/>
-          <input type="text" name="status" value={formData.status} onChange={handleChange} id="status" />
+          <input
+            type="text"
+            name="status"
+            value={formData.status}
+            onChange={handleChange}
+          />
         </div>
-
         <div>
           <label>Coordinates:</label><br/>
-          <input type="text" name="coordinates" value={formData.coordinates.join(', ')} id="coordinates" readOnly /><br/>
-          <button type="button" onClick={handleGetCurrentLocation} id="current-button">
+          <input
+            type="text"
+            name="coordinates"
+            value={formData.coordinates.join(', ')} // Display as a comma-separated string
+            readOnly
+          />
+          <br/>
+          <button id="current-button" type="button" onClick={handleGetCurrentLocation}>
             Use Current Location
           </button>
-          <button type="button" onClick={() => setShowMap(!showMap)} id="choose-button">
+          <button id="choose-button" type="button" onClick={() => setShowMap(!showMap)}>
             {showMap ? 'Hide Map' : 'Choose Location'}
           </button>
         </div>
 
         {showMap && (
           <div style={{ marginTop: '20px' }}>
-            <MapContainer center={formData.coordinates} zoom={5} style={{ height: '600px', width: '100%' }}>
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              <Marker position={formData.coordinates}>
+            <MapContainer
+              center={[formData.coordinates[1], formData.coordinates[0]]} // Set center as [latitude, longitude]
+              zoom={5}
+              style={{ height: '600px', width: '100%' }}
+            >
+              <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+              <Marker position={[formData.coordinates[1], formData.coordinates[0]]}>
                 <MapClickHandler />
               </Marker>
             </MapContainer>
           </div>
         )}
 
-        <button type="submit" style={{ marginTop: '20px' }} id="dis-submit">
+        <button id="dis-submit" type="submit" style={{ marginTop: '20px' }}>
           Submit
         </button>
       </div>
@@ -156,4 +206,4 @@ const DisasterForm = () => {
   );
 };
 
-export default DisasterForm;
+export default AddDisasterForm;

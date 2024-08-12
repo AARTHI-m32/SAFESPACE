@@ -31,7 +31,7 @@ const Disaster = () => {
          console.log(res.data.Disaster)
    }
     return (
-        <div>
+        <div id="disaster-page">
             <Header/>                
             <h2 id="disaster-head">Disaster Information</h2>
             <div id="post-text">
