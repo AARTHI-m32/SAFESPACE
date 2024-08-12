@@ -59,7 +59,13 @@ const Profile = () => {
            <div className="volunteer">
            {profile.volunteer && profile.volunteer.map((vol) => (
                 <div key={vol._id} className="volunteer-card">
-                    <span><b>Name:</b> {vol.name}</span><br/>
+                   <h2>disaster Information</h2> 
+                    <span><b>Disaster Type:</b> {vol.disasterDetails.disastertype}</span><br/>
+                    <span><b>City:</b> {vol.disasterDetails.city}</span><br/>
+                    <span><b>Contact:</b> {vol.disasterDetails.contactinfo}</span><br/>
+                    <span><b>Status:</b> {vol.disasterDetails.status}</span><br/>
+                    <h4>Volunteer Information</h4> 
+                    <span><b>Volunteer Name:</b> {vol.name}</span><br/>
                     <span><b>Phone Number:</b> {vol.phoneno}</span><br/>
                     <span><b>Age:</b> {vol.age}</span><br/>
                     <span><b>Role:</b> {vol.role}</span><br/>

@@ -63,6 +63,7 @@ const VolunteerForm = (props) => {
             <div>
             <label htmlFor="role">Select a Role:</label><br/>
               <select id="role" name="role" value={formData.role} onChange={handleChange}>
+              <option value="">Choose a role</option>
                  <option value="Medical Aid">Medical Aid</option>
                  <option value="Search and Rescue">Search and Rescue</option>
                  <option value="Logistics and Supply Distribution">Logistics and Supply Distribution</option>
