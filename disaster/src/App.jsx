@@ -12,7 +12,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch } from "react-redux";
 import { Profiler, useEffect } from "react";
-import { setToken } from "./redux/userSlice";
+import { setName, setToken } from "./redux/userSlice";
 import Disasterform from "./components/Disasterform";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -23,8 +23,10 @@ const App = () => {
   const dispatch = useDispatch()
   useEffect(()=>{
     const token=localStorage.getItem('token')
-    if(token)
+    const username=localStorage.getItem('name')
+    if(token){
     dispatch(setToken(token))
+    dispatch(setName(username))}
   },[])
 
   return (    

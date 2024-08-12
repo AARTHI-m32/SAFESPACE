@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import {setToken} from '../redux/userSlice'
+import {setName, setToken} from '../redux/userSlice'
 
 const Login = () => {
    const [email,setEmail] = useState("")
@@ -36,8 +36,10 @@ const Login = () => {
    
     const res = await axios.post("https://safespace-zjkg.onrender.com/login",payload)
     localStorage.setItem('token',res.data.token)
+    localStorage.setItem('name',res.data.name)
     toast.success(res.data.message)
     dispatch(setToken(res.data.token))
+    dispatch(setName(res.data.name))
     navigate('/disaster') 
 }
    catch(error){

@@ -6,6 +6,7 @@ import axios from 'axios';
 const Header = () => {
     const myList = useSelector(state => state.remainder.myList);
     const token = useSelector((state) => state.user.token)
+    const username = useSelector((state) => state.user.name)
     console.log(myList)
 
     const dispatch = useDispatch()
@@ -34,7 +35,7 @@ const Header = () => {
          {(token)?
              <Link to="/"><span className='navhome' style={{'padding-right':'20px'}}>Logout</span></Link> :
             <Link to="/login"><span className='navhome' style={{'padding-right':'20px'}}>Login</span></Link>}
-            <Link to="/profile"><span className="navhome" >{token ? "":"Profile"}</span></Link>        
+            <Link to="/profile"><span className="navhome" >{token ? `${username}` :"Profile"}</span></Link>        
            <Link to="/remainder"> <span className="navhome">My Remainders! {myList.length}</span></Link>           
             <Link to="/disaster"><span className="navhome">Disaster</span></Link>
             <Link to="/safety"><span className="navhome">Safety tips</span></Link>

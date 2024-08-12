@@ -39,7 +39,7 @@ const Disaster = () => {
             <button onClick={handleShow}><span>Click Me</span></button>
             </div>
         
-            <div id="disaster">
+            <div className="disaster">
                {disaster.map((disaster) => <Disastercard key={disaster.id} disaster={disaster}/>)}
             </div>
 

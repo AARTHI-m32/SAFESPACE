@@ -14,6 +14,7 @@ const Disastercard = (props) => {
 
     const dispatch = useDispatch();
 console.log(props.disaster)
+console.log("propsid",props.disaster.id)
 
 const token = useSelector((state) => state.user.token)
 const handleAdd = async() => {

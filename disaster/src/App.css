@@ -34,7 +34,7 @@ body{
     font-size: 20px;
   }
   #headerlogo{
-    margin-right: 450px;
+    
     margin-left: 20px;
     font-size: 20px;
   }
@@ -145,7 +145,7 @@ body{
     font-family: cursive;
     border: 1px lavenderblush solid;
   }
-  #disaster{
+  .disaster{
     display: flex;
     flex-wrap: wrap;
     gap:30px;
@@ -273,4 +273,21 @@ body{
 }
 .volunteer-modal #modalform{
   background-color:rgb(222, 218, 218);
+}
+
+.volunteer {
+  display : flex;
+  flex-wrap: wrap;
+  gap:30px;
+  padding-left: 110px;
+}
+.volunteer-card {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around ;
+    flex-direction: column;
+    background-color:rgb(222, 218, 218);
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 5px;
 }

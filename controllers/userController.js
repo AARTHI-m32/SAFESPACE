@@ -78,8 +78,20 @@ const getProfile = async(req,res) => {
         
         const user = await User.findOne({id : req.user.id})
         const disaster = await Disaster.find({userid : req.user.id}).sort({ date: -1 })
-        const volunteer = await Volunteer.find({userid : req.user.id}).sort({ date: -1 })
-        
+        var volunteer = await Volunteer.find({userid : req.user.id}).sort({ date: -1 })
+
+
+        volunteer = await Promise.all(volunteer.map(async (vol) => {
+            const disasterDetails = await Disaster.findOne({ id: vol.disasterid });
+            console.log("Found disaster details:", vol.disasterid);
+            return {
+                ...vol._doc,  // Keep the original volunteer details
+                disasterDetails: disasterDetails ? disasterDetails._doc : null ,
+                // Include the disaster details
+            };
+            
+        }));
+
         const result = { user,disaster,volunteer}
 
         res.status(200).json({

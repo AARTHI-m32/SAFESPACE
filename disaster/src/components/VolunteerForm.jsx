@@ -11,7 +11,7 @@ const VolunteerForm = (props) => {
         agreement: false
     });
    const token = useSelector((state) => state.user.token)
-
+  console.log("volunteerdisid",props.disasterid);
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({

@@ -34,10 +34,11 @@ const Profile = () => {
             <Header/>
             <h2>Profile</h2>
             <h3>Your Posts</h3>
+            <div className="disaster">
                 {profile.disaster && profile.disaster.map((i) => {
                     const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[1]},${i.location.coordinates[0]}`;
                     return (
-                        <div key={i._id}>
+                        <div key={i._id} className="disaster-card">
                             <h4><b>Disaster Type:</b> {i.disastertype}</h4>
                             <span><b>Place:</b> {i.city}</span><br/>
                             <span><b>Requirements:</b> <br/>{i.description}</span><br/>
@@ -49,19 +50,22 @@ const Profile = () => {
                             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
                                 {i.location.coordinates[1]}, {i.location.coordinates[0]}
                             </a><br/>
-                            <span id="author">Posted by,<br/> {i.name}</span>
+                           
                         </div>
                     );
                 })}
+                </div>
            <h3>Volunteer</h3>
+           <div className="volunteer">
            {profile.volunteer && profile.volunteer.map((vol) => (
-                <div key={vol._id}>
-                    <h4><b>Name:</b> {vol.name}</h4>
+                <div key={vol._id} className="volunteer-card">
+                    <span><b>Name:</b> {vol.name}</span><br/>
                     <span><b>Phone Number:</b> {vol.phoneno}</span><br/>
                     <span><b>Age:</b> {vol.age}</span><br/>
                     <span><b>Role:</b> {vol.role}</span><br/>
                 </div>
             ))}
+            </div>
         </div>
             
     )
