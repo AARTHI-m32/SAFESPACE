@@ -46,7 +46,7 @@ const handleAdd = async() => {
           <span><b>Requirements : </b><br/>{props.disaster.description}</span>
           <span><b>Contact Information : </b><br/> {props.disaster.contactinfo}</span>
           <span><b>Date : </b>{props.disaster.date}</span>
-          <span><b>Date : </b>{props.disaster.time}</span>
+          <span><b>Time : </b>{props.disaster.time}</span>
           <span><b>Location : </b><br/></span>
           <span>Click the coordinates below to view the location on Google Maps:</span>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">

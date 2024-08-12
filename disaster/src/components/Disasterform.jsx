@@ -68,7 +68,7 @@ const AddDisasterForm = () => {
       const payload={
           "name" : formData.name,
           "disastertype" : formData.disastertype,
-          'coordinates' : formData.coordinates,
+          'location' : formData.coordinates,
           "city" : formData.city,
           "description" : formData.description,
           "contact": formData.contactinfo,
