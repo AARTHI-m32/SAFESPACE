@@ -75,7 +75,7 @@ const deletedisaster = async(req,res) => {
     try{
     const did = req.params.disasterid
     const deleteddisaster = await Disaster.findOneAndDelete({id:did})
-    const volunteerdelete = await Volunteer.findOneAndDelete({disasterid : did})
+    const volunteerdelete = await Volunteer.deleteMany({disasterid : did})
     res.status(200).json({
         message : "deleted successfully",
         disaster : deleteddisaster
