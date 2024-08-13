@@ -1,4 +1,4 @@
-
+const Volunteer = require('../models/volunteerModel')
 const Disaster = require('../models/disasterModel')
 const { v4 : uuidv4 } = require('uuid')
 
@@ -75,6 +75,7 @@ const deletedisaster = async(req,res) => {
     try{
     const did = req.params.disasterid
     const deleteddisaster = await Disaster.findOneAndDelete({id:did})
+    const volunteerdelete = await Volunteer.findOneAndDelete({disasterid : did})
     res.status(200).json({
         message : "deleted successfully",
         disaster : deleteddisaster

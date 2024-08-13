@@ -29,6 +29,22 @@ const Profile = () => {
 
         }
     }
+
+    const handledelete = async(id) => {
+        try{
+            const deleted = await axios.delete(`https://safespace-zjkg.onrender.com/disaster/deletedisaster/${id}`,{
+                headers : {
+                    Authorization : `Bearer ${token}`
+                }
+            })
+            console.log("deleted")
+            getProfile()
+        }
+        catch(error){
+            console.log(error);
+        }
+    }
+
     return(
         <div>
             <Header/>
@@ -50,7 +66,8 @@ const Profile = () => {
                             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
                                 {i.location.coordinates[1]}, {i.location.coordinates[0]}
                             </a><br/>
-                           
+                            <button onClick={() => handledelete(i.id)}>Delete</button>
+                            <button >Edit</button>
                         </div>
                     );
                 })}
