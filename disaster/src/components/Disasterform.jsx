@@ -3,18 +3,19 @@ import axios from 'axios';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 
-const AddDisasterForm = () => {
+const Disasterform = ({props}) => {
   const [formData, setFormData] = useState({
     name: '',
     disastertype: '',
-    city: '',
+    city:  '',
     coordinates: [78.9629, 20.5937], // Default coordinates [longitude, latitude] (India's center)
     description: '',
-    contactinfo: '',
-    date: '',
+    contactinfo:  '',
+    date:'',
     time: '',
     status: '',
   });
+
 
   const token = useSelector((state) => state.user.token);
 
@@ -61,8 +62,6 @@ const AddDisasterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
       const payload = {
         name: formData.name,
         disastertype: formData.disastertype,
@@ -75,6 +74,7 @@ const AddDisasterForm = () => {
         status: formData.status || 'Emergency',
       };
 
+    try{
       await axios.post(
         'https://safespace-zjkg.onrender.com/disaster/adddisaster',
         payload,
@@ -89,8 +89,9 @@ const AddDisasterForm = () => {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
     }
-    window.location='/disaster'
-  };
+    window.location='/disaster'}
+  
+
 
   return (
     <form onSubmit={handleSubmit} className='disaster-form'>
@@ -206,4 +207,4 @@ const AddDisasterForm = () => {
   );
 };
 
-export default AddDisasterForm;
+export default Disasterform;

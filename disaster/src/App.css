@@ -29,7 +29,7 @@ body{
       font-size: 18px;
   }
   #homelogo{
-    margin-right: 900px;
+    margin-right: 650px;
     margin-left: 30px;
     font-size: 20px;
   }
@@ -45,6 +45,9 @@ body{
     text-decoration: none;
     padding-left:60px;
     padding-right: 5px;
+  }
+  .navhome:hover{
+    color : orangered;
   }
   #hometext{
     position: absolute;

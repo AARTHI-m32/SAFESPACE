@@ -37,6 +37,7 @@ const VolunteerForm = (props) => {
                     }}
             )
            console.log("volunteer registered")
+           window.location='/disaster'
         }
     catch(error){
         console.error('Error submitting form:', error);

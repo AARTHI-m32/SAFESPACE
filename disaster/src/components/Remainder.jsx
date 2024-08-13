@@ -1,12 +1,51 @@
 import { useDispatch, useSelector } from "react-redux"
 import Header from "./Header"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import axios from "axios"
+import { setList } from "../redux/remainderSlice"
 
 const Remainder = () => {
-   const remainderList = useSelector(state => state.remainder.myList)
-   console.log("remainder",remainderList)
+    const token = useSelector((state) => state.user.token)
+
+   const dispatch = useDispatch()
 
 
+   
+   useEffect (() => {
+    if(token)
+    getRemainder()
+},[token])
+
+const remainderList = useSelector(state => state.remainder.myList)
+console.log("remainder",remainderList)
+   const getRemainder = async() => {
+               try{
+                const res = await axios.get("https://safespace-zjkg.onrender.com/remainder/getallremainder",{
+                    headers : {
+                        Authorization : `Bearer ${token}`
+                    }
+                })
+                     dispatch(setList(res.data))
+               }
+               catch(error){
+                console.log(error)
+               }
+   }
+
+   const handledelete = async(id) => {
+    try{
+         const deleted = await axios.delete(`https://safespace-zjkg.onrender.com/remainder/deleteremainder/${id}`,{
+            headers : {
+                Authorization : `Bearer ${token}`
+            }
+         }) 
+         console.log("deleted")
+         getRemainder()
+    }
+    catch(error){
+        console.log(error)
+    }
+   }
     return(
         <div>
          <Header/>
@@ -28,6 +67,7 @@ const Remainder = () => {
                           </a>
               
                           <span id="author">Posted by,<br/> {i.name}</span>
+                          <button onClick={()=>handledelete(i.id)}>Delete</button>
                     </div>
                  ) })
             }

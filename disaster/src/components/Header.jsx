@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setList } from '../redux/remainderSlice';
 import axios from 'axios';
+import { removeToken, setToken } from '../redux/userSlice';
 const Header = () => {
     const myList = useSelector(state => state.remainder.myList);
     const token = useSelector((state) => state.user.token)
@@ -28,12 +29,19 @@ const Header = () => {
         dispatch(setList(res.data))
       }
 
+      const handlelogout = async() => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('name')
+        dispatch(removeToken())
+        dispatch(SetName(null))
+      }
+
     return(
         <>
             <div id="headernav" >               
          <span id="headerlogo">SAFESPACE</span> 
          {(token)?
-             <Link to="/"><span className='navhome' style={{'padding-right':'20px'}}>Logout</span></Link> :
+             <Link to="/"><span className='navhome' style={{'padding-right':'20px'}} onClick={handlelogout}>Logout</span></Link> :
             <Link to="/login"><span className='navhome' style={{'padding-right':'20px'}}>Login</span></Link>}
             <Link to="/profile"><span className="navhome" >{token ? `${username}` :"Profile"}</span></Link>        
            <Link to="/remainder"> <span className="navhome">My Remainders! {myList.length}</span></Link>           

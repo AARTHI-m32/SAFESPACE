@@ -45,6 +45,22 @@ const Profile = () => {
         }
     }
 
+    const handlevolunteerdelete = async(vid) => {
+        try{
+            const vdelte = await axios.delete(`https://safespace-zjkg.onrender.com/disaster/deletedisaster/${vid}`,{
+                headers : {
+                    Authorization : `Bearer ${token}`
+                }
+            })
+            console.log("volunteer deleted")
+            getProfile()    
+            
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+
     return(
         <div>
             <Header/>
@@ -86,6 +102,7 @@ const Profile = () => {
                     <span><b>Phone Number:</b> {vol.phoneno}</span><br/>
                     <span><b>Age:</b> {vol.age}</span><br/>
                     <span><b>Role:</b> {vol.role}</span><br/>
+                    <button onClick={() => handlevolunteerdelete(i.id)}>Delete</button>
                 </div>
             ))}
             </div>
