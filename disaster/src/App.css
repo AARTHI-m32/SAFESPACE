@@ -46,6 +46,10 @@ body{
     padding-left:60px;
     padding-right: 5px;
   }
+  .navhomed{
+    text-decoration:none;
+    color: beige;
+  }
   .navhome:hover{
     color : orangered;
   }
@@ -293,4 +297,116 @@ body{
     padding: 10px;
     border: 2px black solid;
     border-radius: 5px;
+}
+
+#footer{
+  background-color: black;
+  margin-top: 20px;
+  color : beige;
+ text-align: center;
+ padding: 5px;
+}
+#footerc{
+  margin-bottom: 0px;
+}
+.about1{
+  display:inline-flex;
+  margin : 40px;
+ padding-bottom: 40px;
+ margin-bottom: 0px;
+  border-bottom: 2px solid black;
+}
+.about2{
+  display:inline-flex;
+  margin : 40px;
+ padding-bottom: 40px;
+ margin-bottom: 0px;
+
+}
+.caroselp{
+  font-size: 20px;
+  margin: 40px;
+  margin-top: 60px;
+  
+}
+.aboutp{
+  font-size: 18px;
+  margin: 30px;
+  margin-bottom: 20px;
+  
+}
+.caroselp span{
+  color:orangered;
+  font-size: 28px;
+  font-family: cursive;
+}
+.carosel{
+  width : 700px;
+  height:500px
+}
+.caroselimage{
+  width : 700px;
+  height : 500px
+}
+.caroselholder{
+  width : 700px;
+  height : 500px
+}
+
+.hover-dropdown {
+ 
+  float: right;
+  font-size: 16px;
+}
+
+.hover-dropdown .dropdown-toggle {
+  color: white;
+  font-size: 18px;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.hover-dropdown .dropdown-toggle:hover {
+  color: #ddd;
+}
+
+#basic-nav-dropdown {
+  display: inline-block; /* Ensure the dropdown stays inline */
+  margin-right: 20px; /* Optional: add space between the dropdown and the next element */
+}
+
+.dropdown-menu {
+  background-color: #343a40;
+  border: 2px black solid;
+  width: 60px;
+}
+
+.dropdown-item {
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #495057;
+  
+}
+
+.safety{
+  font-size: 17px;
+  padding: 30px;
+  margin: 20px;
+  border: 2px black solid;
+}
+.safety h3{
+  text-align: center;
+  font-family: cursive;
+  color:orangered;
+}
+.safety strong{
+  font-size: 18px;;
+}
+.safety img{
+  width : 600px;
+  height : 500px;
+ margin-left: 400px;
+ margin-bottom: 40px;
 }

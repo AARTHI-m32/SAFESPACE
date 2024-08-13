@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import { useSelector } from 'react-redux';
 
-const Disasterform = ({props}) => {
+const Disasterform = ({ selectedDisaster }) => {
   const [formData, setFormData] = useState({
     name: '',
     disastertype: '',
@@ -16,10 +16,10 @@ const Disasterform = ({props}) => {
     status: '',
   });
 
-
   const token = useSelector((state) => state.user.token);
 
   const [showMap, setShowMap] = useState(false);
+
 
   const handleGetCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
@@ -59,7 +59,22 @@ const Disasterform = ({props}) => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const date = new Date(selectedDisaster.date).toLocaleDateString()
+  useEffect(() => {
+    if (selectedDisaster) {
+      setFormData({
+        name: selectedDisaster.name || '',
+        disastertype: selectedDisaster.disastertype || '',
+        city: selectedDisaster.city || '',
+        coordinates: selectedDisaster.location.coordinates || [78.9629, 20.5937],
+        description: selectedDisaster.description || '',
+        contactinfo: selectedDisaster.contactinfo || '',
+        date: date || '',
+        time: selectedDisaster.time || '',
+        status: selectedDisaster.status || '',
+      });
+    }
+  }, [selectedDisaster]);
   const handleSubmit = async (e) => {
     e.preventDefault();
       const payload = {
@@ -75,7 +90,16 @@ const Disasterform = ({props}) => {
       };
 
     try{
-      await axios.post(
+      if(selectedDisaster ){
+        const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${selectedDisaster.id}`,payload,{
+          headers : {
+            Authorization : `Bearer ${token}`
+          }
+        })
+        console.log("edited");
+      }
+      else
+      { const add = await axios.post(
         'https://safespace-zjkg.onrender.com/disaster/adddisaster',
         payload,
         {
@@ -84,7 +108,7 @@ const Disasterform = ({props}) => {
           },
         }
       );
-      console.log('Disaster registered');
+      console.log('Disaster registered');}
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
@@ -200,7 +224,7 @@ const Disasterform = ({props}) => {
         )}
 
         <button id="dis-submit" type="submit" style={{ marginTop: '20px' }}>
-          Submit
+          {(selectedDisaster)?"Edit":"Submit"}
         </button>
       </div>
     </form>

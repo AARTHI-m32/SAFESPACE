@@ -11,8 +11,11 @@ const  Homepage = () => {
        <div id="home">
             <img src="./images/r.com.jpg"className="image"/>   
             <div id="homenav">               
-            <span id="homelogo">SAFESPACE</span>    
-            <Link to="/login"><span className="navhome">Login</span></Link>
+            <span id="homelogo">SAFESPACE</span>  
+            {
+                token ? <Link to="/about" ><span className="navhome">Welcomee!!</span></Link>:
+                <Link to="/login"><span className="navhome">Login</span></Link>
+            }  
             <Link to="/register"><span className="navhome">Register</span></Link>
             {
                 token ? <Link to="/disaster" ><span className="navhome">Disater</span></Link>:
@@ -31,8 +34,7 @@ const  Homepage = () => {
               <Link to="/about"><button>Get Started</button></Link>
             </div>
 
-          
-       </div>
+            </div>
        </>
     )
 }

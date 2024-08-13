@@ -16,7 +16,11 @@ import { setName, setToken } from "./redux/userSlice";
 import Disasterform from "./components/Disasterform";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import Safety from "./components/Safety";
+import Fire from "./components/Fire";
+import Nature from "./components/Nature";
+import Pandemic from "./components/Pandemic";
+import Earthquake from "./components/Earthquake";
+import Flood from "./components/Flood";
 
 //https://safespace-zjkg.onrender.com
 const App = () => {
@@ -44,7 +48,11 @@ const App = () => {
       <Route path="/register" element={<Register/>}/>
       <Route path="/disasterform" element={<Disasterform/>}/>
       <Route path="/profile" element={<Profile/>}/>
-      <Route path="/safety" element={<Safety/>}/>
+      <Route path="/fire" element={<Fire/>}/>
+      <Route path="/nature" element={<Nature/>}/>
+      <Route path="/pandemic" element={<Pandemic/>}/>
+      <Route path="/earthquake" element={<Earthquake/>}/>
+      <Route path="/flood" element={<Flood/>}/>
     </Routes>
     </BrowserRouter>
 

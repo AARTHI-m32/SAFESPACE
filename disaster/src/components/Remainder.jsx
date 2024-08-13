@@ -8,9 +8,7 @@ const Remainder = () => {
     const token = useSelector((state) => state.user.token)
 
    const dispatch = useDispatch()
-
-
-   
+  
    useEffect (() => {
     if(token)
     getRemainder()
@@ -49,7 +47,7 @@ console.log("remainder",remainderList)
     return(
         <div>
          <Header/>
-         <div>
+         <div className="disaster">
             {
                 remainderList.map((i)=>{
                     const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[0]},${i.location.coordinates[1]}`;
