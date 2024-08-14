@@ -58,9 +58,15 @@ const Login = () => {
        <label htmlFor="password" className="llabel">Password</label><br/>
        <input type="password" name="lpassword" value={password} onChange={handlePassword} className="linput"/><br/>
        <label htmlFor="role" className="llabel">Role</label><br/>
-       <input type="text" name="lrole" value={role} onChange={handleRole} className="linput"/><br/>
+       <label>
+       <input type="radio"  value="user" checked={role === 'user'} onChange={handleRole} className="lradio"/>
+        User
+       </label>
+        <label>
+        <input type="radio" value="admin" checked={role === 'admin'} onChange={handleRole} className="lradio"/>
+         Admin
+       </label> <br/>
        <button id="lbutton" onClick={loginhandle}>Login</button><br/>
-
        <span id="lspan">To Create an account ? <Link to="/register" id="lreg">Register</Link></span>
     </div>
     </div>

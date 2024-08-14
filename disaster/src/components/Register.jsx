@@ -25,7 +25,6 @@ const Register = () => {
       username : username,
       email : email,
       password : password,
-      role : "user"
     }
     try{
      const res = await axios.post("https://safespace-zjkg.onrender.com/register",payload)
