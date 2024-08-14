@@ -20,7 +20,7 @@ const Disasterform = ({ selectedDisaster }) => {
 
   const [showMap, setShowMap] = useState(false);
 
-
+console.log("select",selectedDisaster)
   const handleGetCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {

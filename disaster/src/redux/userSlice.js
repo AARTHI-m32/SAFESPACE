@@ -17,11 +17,11 @@ const userSlice = createSlice({
         setName : (state,action) => {
             state.name =action.payload
         },
-        setRole : (state,action) => {
+        setRolee : (state,action) => {
             state.role =action.payload
         }
     }
 })
 
-export const {setToken,removeToken,setName,setRole} = userSlice.actions
+export const {setToken,removeToken,setName,setRolee} = userSlice.actions
 export default userSlice.reducer

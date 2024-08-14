@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import {setName, setToken ,setRole} from '../redux/userSlice'
+import {setName, setRolee, setToken } from '../redux/userSlice'
 
 const Login = () => {
    const [email,setEmail] = useState("")
@@ -37,22 +37,20 @@ const Login = () => {
     const res = await axios.post("https://safespace-zjkg.onrender.com/login",payload)
     localStorage.setItem('token',res.data.token)
     localStorage.setItem('name',res.data.name)
+    localStorage.setItem('role',res.data.role)
     toast.success(res.data.message)
     dispatch(setToken(res.data.token))
     dispatch(setName(res.data.name))
-    dispatch(setRole(res.data.role))
-    console.log(res)
+    dispatch(setRolee(res.data.role))
+    console.log("login",res.data)
     navigate('/disaster') 
 }
    catch(error){
-   // toast.error(error.response.data.message)
-    //console.log(error.response.data.message)
-    console.log(error.response.data.message)
+    toast.error(error.response.data.message)
    }
    }
 
-
-
+   
   return(
     <div className="login">
       <img src="./images/login.avif" className="image"/>

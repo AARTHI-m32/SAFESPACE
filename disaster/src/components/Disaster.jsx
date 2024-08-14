@@ -28,7 +28,7 @@ const Disaster = () => {
         }
     })
         setDisaster(res.data.Disaster)
-         console.log(res.data.Disaster)
+         console.log("disaster",res.data.Disaster)
    }
     return (
         <div id="disaster-page">

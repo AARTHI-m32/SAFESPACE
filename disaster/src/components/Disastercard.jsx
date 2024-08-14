@@ -13,9 +13,9 @@ const Disastercard = (props) => {
     const handleShow = () => setShow(true);
 
     const dispatch = useDispatch();
-
+console.log("card",props.disaster)
 const token = useSelector((state) => state.user.token)
-const role= useSelector((state) => state.user.role)
+const role= localStorage.getItem('role')
 console.log("role",role)
 const handleverify = async(id) => {
     const payload = {
@@ -71,14 +71,14 @@ const handleAdd = async() => {
 
             <span id="author">Posted by,<br/> {props.disaster.name}</span>
             
-           { role == 'user' ? (
-            <div>
+           { role == 'admin' ? (
+            <button onClick={()=>handleverify(props.disaster.id)}>Verify</button>
+        ): (
+            <>
         <button onClick={handleAdd}>Add to My List</button>
         <button onClick={handleShow}>Volunteer</button>
-        </div>) : (
-            <button onClick={()=>handleverify(props.disaster.id)}>Verify</button>
-        )}
-
+        </>) 
+}
         <Modal show={show} onHide={handleClose} className='volunteer-modal'>
                 <Modal.Header id="modalhead">
                     <Modal.Title>Become a Volunteer!!</Modal.Title>

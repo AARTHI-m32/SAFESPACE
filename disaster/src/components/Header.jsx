@@ -29,6 +29,7 @@ const Header = () => {
     const handleLogout = async () => {
         localStorage.removeItem('token');
         localStorage.removeItem('name');
+        localStorage.removeItem('role')
         dispatch(removeToken());
         dispatch(setName(null));
     };
