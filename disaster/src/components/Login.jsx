@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import {setName, setToken} from '../redux/userSlice'
+import {setName, setToken ,setRole} from '../redux/userSlice'
 
 const Login = () => {
    const [email,setEmail] = useState("")
@@ -40,10 +40,14 @@ const Login = () => {
     toast.success(res.data.message)
     dispatch(setToken(res.data.token))
     dispatch(setName(res.data.name))
+    dispatch(setRole(res.data.role))
+    console.log(res)
     navigate('/disaster') 
 }
    catch(error){
-    toast.error(error.response.data.message)
+   // toast.error(error.response.data.message)
+    //console.log(error.response.data.message)
+    console.log(error.response.data.message)
    }
    }
 

@@ -13,10 +13,10 @@ const Disastercard = (props) => {
     const handleShow = () => setShow(true);
 
     const dispatch = useDispatch();
-console.log(props.disaster)
-console.log("propsid",props.disaster.id)
 
 const token = useSelector((state) => state.user.token)
+const role= useSelector((state) => state.user.role)
+console.log("role",role)
 const handleverify = async(id) => {
     const payload = {
         "verify" : true
@@ -48,7 +48,7 @@ const handleAdd = async() => {
     dispatch(addToMyList(props.disaster));
  
 }
-       const role='admin'
+    
 
   const lat=props.disaster.location.coordinates[1]
   const lng=props.disaster.location.coordinates[0]
