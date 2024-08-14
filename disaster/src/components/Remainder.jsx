@@ -47,8 +47,10 @@ console.log("remainder",remainderList)
     return(
         <div>
          <Header/>
+         <h3 className="profilehead">Your Remainders</h3>
          <div className="disaster">
-            {
+        { remainderList && remainderList.length > 0 ? (
+            
                 remainderList.map((i)=>{
                     const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[0]},${i.location.coordinates[1]}`;
                     return(
@@ -68,7 +70,12 @@ console.log("remainder",remainderList)
                           <button onClick={()=>handledelete(i.id)}>Delete</button>
                     </div>
                  ) })
+) :
+                (
+                <p>No remainders added🥺</p>
+                )
             }
+        
          </div>
         </div>
     )

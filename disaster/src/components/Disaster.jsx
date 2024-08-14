@@ -35,7 +35,8 @@ const Disaster = () => {
             <Header/>                
             <h2 id="disaster-head">Disaster Information</h2>
             <div id="post-text">
-                <p>Are You in an emergency ? Wan to seek help from Volunteers ? You can now post about the situation and seek help !!</p>
+                <p>Are You in an emergency ? Want to seek help from Volunteers ? Have critical updates on a disaster? <br/>
+                Post them here and assist others in staying safe and prepared!!🌎</p>
             <button onClick={handleShow}><span>Click Me</span></button>
             </div>
         

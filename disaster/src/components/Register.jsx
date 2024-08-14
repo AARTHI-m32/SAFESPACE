@@ -21,10 +21,12 @@ const Register = () => {
   
   const handleRegister = async(e) => {
     e.preventDefault()
+    const rolee = (password === "3456")? 'admin' : 'user'
     const payload = {
       username : username,
       email : email,
       password : password,
+      role : rolee
     }
     try{
      const res = await axios.post("https://safespace-zjkg.onrender.com/register",payload)
@@ -33,7 +35,8 @@ const Register = () => {
      navigate("/login")
     }
     catch(error){
-      toast.error(error.response.data.message)
+      toast.error("Registration not successfull")
+      console.log(error.response.data.message)
     }
   }
   return(

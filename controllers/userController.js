@@ -22,13 +22,13 @@ const register = async(req,res) => {
         })
     }
    
-    const rolee = (req.body.password === '3456')? 'admin' : 'user'
+    const rolee = (req.body.password === "3456")? 'admin' : 'user'
         const newuser = await User.create({
             id : uuidv4(),
             username : req.body.username,
             email : req.body.email,
             password : req.body.password,
-            role : rolee
+            role :req.body.role
         })
         return res.status(200).json({
             message : "Registration Success",

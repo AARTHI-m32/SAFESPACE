@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Header from "./Header"
 import Image from "./Image"
 const About = () => {
@@ -18,8 +19,8 @@ const About = () => {
             to address immediate needs and facilitate long-term healing and rebuilding. Understanding and addressing
              these diverse forms of suffering is crucial for effective disaster response and recovery efforts.
            <br/><br/>
-           Get to know about the disasters happening currently<br/>
-             <button>Disaster</button>
+           Get to know about the disasters happening currently<br/><br/>
+             <Link to="/disaster"><button className="aboutbut">Disaster</button></Link>
          </p>
          <img src = "./images/about1.jpg" className="caroselimage"/>
         </div>
@@ -36,8 +37,8 @@ const About = () => {
             Volunteering not only aids those affected by disasters but also enriches the volunteers' own lives, as they gain a 
             deeper understanding of humanitarian issues and contribute to making a positive impact on society.
            <br/><br/>
-           Save Someone by Volunteering<br/>
-             <button>Volunteer</button>
+           Save Someone by Volunteering<br/> <br/>
+           <Link to="/disaster"><button className="aboutbut">Volunteer</button></Link>
          </p>
    
         </div>

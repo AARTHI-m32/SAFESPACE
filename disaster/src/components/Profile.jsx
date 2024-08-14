@@ -98,7 +98,7 @@ console.log("select",selectedDisaster)
             );
         })
     ) : (
-        <p>No posts yet</p>
+        <p>No posts yet🥺</p>
     )}
           </div>
 
@@ -122,7 +122,7 @@ console.log("select",selectedDisaster)
             </div>
         ))
     ) : (
-        <p>No volunteer details available</p>
+        <p>No volunteer details available🥺</p>
     )}
 </div>
 

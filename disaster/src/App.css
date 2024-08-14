@@ -363,6 +363,15 @@ body{
   margin-bottom: 20px;
   
 }
+.aboutbut{
+  width : 97%;
+  height: 30px;
+  font-size: 18px; 
+  background-color: beige;
+  margin :5px;
+  font-family: cursive;
+  color: orangered;
+}
 .caroselp span{
   color:orangered;
   font-size: 28px;
