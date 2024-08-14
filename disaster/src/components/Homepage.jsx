@@ -13,17 +13,17 @@ const  Homepage = () => {
             <div id="homenav">               
             <span id="homelogo">SAFESPACE</span>  
             {
-                token ? <Link to="/about" ><span className="navhome">Welcomee!!</span></Link>:
-                <Link to="/login"><span className="navhome">Login</span></Link>
+                token ? <Link to="/about" className="navhomeh">Welcomee!!</Link>:
+                <Link to="/login" className="navhomeh">Login</Link>
             }  
-            <Link to="/register"><span className="navhome">Register</span></Link>
+            <Link to="/register" className="navhomeh">Register</Link>
             {
-                token ? <Link to="/disaster" ><span className="navhome">Disater</span></Link>:
-                <Link to="/login"><span className="navhome">Disaster</span></Link>
+                token ? <Link to="/disaster" className="navhomeh">Disater</Link>:
+                <Link to="/login"><span className="navhomeh">Disaster</span></Link>
             }    
             
-            <Link to="/safety"><span className="navhome">Safety tips</span></Link>
-            <Link to="/about"><span className="navhome">About Us</span></Link>   
+            <Link to="/safety"><span className="navhomeh">Safety tips</span></Link>
+            <Link to="/about"><span className="navhomeh">About Us</span></Link>   
             </div>
             <div id="hometext">
                 <p>Any Disaster ?<br/>

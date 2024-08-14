@@ -22,11 +22,11 @@ const About = () => {
            Get to know about the disasters happening currently<br/><br/>
              <Link to="/disaster"><button className="aboutbut">Disaster</button></Link>
          </p>
-         <img src = "./images/about1.jpg" className="caroselimage"/>
+         <img src = "./images/about1.jpg" className="caroselimage1"/>
         </div>
 
         <div className="about2">
-        <img src = "./images/about2.jpg" className="caroselimage"/>
+        <img src = "./images/about2.jpg" className="caroselimage1"/>
          <p className="aboutp">
          Volunteering plays a critical role in disaster management, offering vital support and relief to those affected by crises.
           Volunteers contribute their time, skills, and resources to assist in various aspects of disaster response and recovery. 
