@@ -113,8 +113,8 @@ const Disasterform = ({ selectedDisaster }) => {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
     }
-   // window.location='/disaster'}
-  }
+    window.location='/disaster'}
+  
 
 
   return (

@@ -33,7 +33,7 @@ const handleAdd = async() => {
     dispatch(addToMyList(props.disaster));
  
 }
-       
+       const role='admin'
 
   const lat=props.disaster.location.coordinates[1]
   const lng=props.disaster.location.coordinates[0]
@@ -55,8 +55,14 @@ const handleAdd = async() => {
             </a>
 
             <span id="author">Posted by,<br/> {props.disaster.name}</span>
+            
+           { role == 'user' ? (
+            <div>
         <button onClick={handleAdd}>Add to My List</button>
         <button onClick={handleShow}>Volunteer</button>
+        </div>) : (
+            <button >Verify</button>
+        )}
 
         <Modal show={show} onHide={handleClose} className='volunteer-modal'>
                 <Modal.Header id="modalhead">

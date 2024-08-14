@@ -6,6 +6,7 @@ import { setList } from "../redux/remainderSlice"
 
 const Remainder = () => {
     const token = useSelector((state) => state.user.token)
+    
 
    const dispatch = useDispatch()
   

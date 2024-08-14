@@ -58,7 +58,8 @@ const editDisaster = async(req,res) => {
             description : req.body.description,
             contactinfo : req.body.contact,
             date : req.body.date,
-            time : req.body.time
+            time : req.body.time,
+            verify : req.body.verify,
            }},
            {new : true}
         )

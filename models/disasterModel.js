@@ -35,6 +35,10 @@ const disasterSchema = new mongoose.Schema({
     status : {
         type : String,
         default : "Emergency"
+    },
+    verify : {
+        type : Boolean,
+        default : false
     }
 })
 
