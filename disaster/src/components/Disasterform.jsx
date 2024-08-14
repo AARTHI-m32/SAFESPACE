@@ -59,7 +59,7 @@ const Disasterform = ({ selectedDisaster }) => {
       [e.target.name]: e.target.value,
     });
   };
-  const date = new Date(selectedDisaster.date).toLocaleDateString()
+  
   useEffect(() => {
     if (selectedDisaster) {
       setFormData({
@@ -69,7 +69,7 @@ const Disasterform = ({ selectedDisaster }) => {
         coordinates: selectedDisaster.location.coordinates || [78.9629, 20.5937],
         description: selectedDisaster.description || '',
         contactinfo: selectedDisaster.contactinfo || '',
-        date: date || '',
+        date: '',
         time: selectedDisaster.time || '',
         status: selectedDisaster.status || '',
       });
