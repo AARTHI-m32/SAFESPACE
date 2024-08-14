@@ -35,10 +35,12 @@ const Profile = () => {
     const handleShow = (disaster) => {
         setSelectedDisaster(disaster);
         setShow(true);
+        getProfile()
     };
 
     const handleClose = () => {
         setShow(false);
+       
     };
 
     const handleDelete = async (id) => {

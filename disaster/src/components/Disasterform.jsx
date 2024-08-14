@@ -88,7 +88,7 @@ const Disasterform = ({ selectedDisaster }) => {
         time: formData.time,
         status: formData.status || 'Emergency',
       };
-
+ console.log("pay;load",payload)
     try{
       if(selectedDisaster ){
         const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${selectedDisaster.id}`,payload,{
@@ -113,8 +113,8 @@ const Disasterform = ({ selectedDisaster }) => {
       console.error('Error submitting form:', error);
       alert('Failed to submit disaster information.');
     }
-    window.location='/disaster'}
-  
+   // window.location='/disaster'}
+  }
 
 
   return (

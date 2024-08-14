@@ -35,8 +35,8 @@ const handleAdd = async() => {
 }
        
 
-  const lat=props.disaster.location.coordinates[0]
-  const lng=props.disaster.location.coordinates[1]
+  const lat=props.disaster.location.coordinates[1]
+  const lng=props.disaster.location.coordinates[0]
     
     const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
     return (

@@ -55,8 +55,10 @@ const editDisaster = async(req,res) => {
                 type: 'Point',
                 coordinates: req.body.coordinates,
               },
-            descripton : req.body.description,
-            contactinfo : req.body.contact
+            description : req.body.description,
+            contactinfo : req.body.contact,
+            date : req.body.date,
+            time : req.body.time
            }},
            {new : true}
         )
