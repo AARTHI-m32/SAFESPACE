@@ -154,6 +154,9 @@ body{
     font-family: cursive;
     border: 1px lavenderblush solid;
   }
+  .verify{
+    color : green
+  }
   .disaster{
     display: flex;
     flex-wrap: wrap;

@@ -17,6 +17,21 @@ console.log(props.disaster)
 console.log("propsid",props.disaster.id)
 
 const token = useSelector((state) => state.user.token)
+const handleverify = async(id) => {
+    const payload = {
+        "verify" : true
+    }
+    try{
+    const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${id}`,payload,{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+    console.log("verified")}
+      catch(error){
+        console.log(error)
+      }
+}
 const handleAdd = async() => {
     console.log("item added")
     const payload=  {
@@ -41,7 +56,7 @@ const handleAdd = async() => {
     const googleMapsUrl = `https://www.google.com/maps?q=${lat},${lng}`;
     return (
         <div className="disaster-card">
-         
+         <h4 className='verify'> {(props.disaster.verify==true)?"Verified✅":""}</h4>
           <h4><b>Disaster Type : </b>{props.disaster.disastertype}</h4>
           <span><b>Place : </b>{props.disaster.city}</span>
           <span><b>Requirements : </b><br/>{props.disaster.description}</span>
@@ -61,7 +76,7 @@ const handleAdd = async() => {
         <button onClick={handleAdd}>Add to My List</button>
         <button onClick={handleShow}>Volunteer</button>
         </div>) : (
-            <button >Verify</button>
+            <button onClick={()=>handleverify(props.disaster.id)}>Verify</button>
         )}
 
         <Modal show={show} onHide={handleClose} className='volunteer-modal'>
