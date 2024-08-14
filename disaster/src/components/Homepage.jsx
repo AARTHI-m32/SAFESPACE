@@ -31,7 +31,10 @@ const  Homepage = () => {
                     post here and get help from Volunteers!!
                 </p>
              
-              <Link to="/about"><button>Get Started</button></Link>
+                {
+                token ? <Link to="/disaster"><button>Get Started</button></Link>:
+                <Link to="/login"><button>Get Started</button></Link>
+            }
             </div>
 
             </div>
