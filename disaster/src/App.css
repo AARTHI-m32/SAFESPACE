@@ -80,7 +80,7 @@ body{
     background-color: rgb(243, 91, 36);
     border-radius: 5px;
     position: absolute;
-    width:29%;
+    width:30%;
     height: 460px;
     padding-left: 70px;
     font-size: 22px;
@@ -96,11 +96,12 @@ body{
   }
   
   #lhead{
+    text-align: center;
     padding-top: 30px;
-     padding-left: 40px;
+     padding-right: 70px;
      padding-bottom: 10px;
      color:burlywood;
-     font-size: 32px;
+     font-size: 130%;
   }
   .lradio{
     margin-left: 50px;
@@ -109,15 +110,15 @@ body{
     margin-left: 0px;
     height: 30px;
     margin-bottom: 15px;
-    width: 300px;
+    width: 80%;
     border-radius: 5px;
     font-size: 17px;
     font-family:Arial, Helvetica, sans-serif;
   }
   #lbutton{
-    margin-left: 75px;
+    margin-left: 15%;
     margin-top: 20px;
-    width:150px;
+    width:50%;
     height: 45px;
     font-size: 25px;
     font-family: cursive;

@@ -19,11 +19,11 @@ const  Homepage = () => {
             <Link to="/register" className="navhomeh">Register</Link>
             {
                 token ? <Link to="/disaster" className="navhomeh">Disater</Link>:
-                <Link to="/login"><span className="navhomeh">Disaster</span></Link>
+                <Link to="/login" className="navhomeh">Disaster</Link>
             }    
             
-            <Link to="/safety"><span className="navhomeh">Safety tips</span></Link>
-            <Link to="/about"><span className="navhomeh">About Us</span></Link>   
+            <Link to="/safety" className="navhomeh">Safety tips</Link>
+            <Link to="/about" className="navhomeh">About Us</Link>   
             </div>
             <div id="hometext">
                 <p>Any Disaster ?<br/>
