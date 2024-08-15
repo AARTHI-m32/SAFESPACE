@@ -14,8 +14,8 @@ const About = () => {
           services.
           Survivors may grapple with grief from lost loved ones, fear, and uncertainty about the future.
            The disruption of daily life and the loss of economic stability can lead to long-term challenges, 
-           including financial strain and difficulties in accessing education and healthcare. The recovery 
-           process is often slow and arduous, requiring substantial support from both local and global communities
+           including financial strain and difficulties. The recovery 
+           process is often slow and arduous, requiring substantial support from local and global communities
             to address immediate needs and facilitate long-term healing and rebuilding. Understanding and addressing
              these diverse forms of suffering is crucial for effective disaster response and recovery efforts.
            <br/><br/>
@@ -29,7 +29,6 @@ const About = () => {
         <img src = "./images/about2.jpg" className="caroselimage1"/>
          <p className="aboutp">
          Volunteering plays a critical role in disaster management, offering vital support and relief to those affected by crises.
-          Volunteers contribute their time, skills, and resources to assist in various aspects of disaster response and recovery. 
           They may be involved in distributing supplies, providing medical aid, or offering emotional support to survivors. 
           Beyond the immediate aftermath, volunteers help with long-term recovery efforts, including rebuilding infrastructure,
            supporting community resilience programs, and advocating for policies to improve disaster preparedness. Their 

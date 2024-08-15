@@ -351,25 +351,26 @@ body{
 .about1{
   display:inline-flex;
   
-  margin : 40px;
- padding-bottom: 40px;
+  margin : 20px;
+ padding-bottom: 2.5%;
  margin-bottom: 0px;
   border-bottom: 2px solid black;
 }
 .about2{
   display:inline-flex;
   margin : 40px;
-  padding-bottom: 40px;
+  padding-bottom: 2.5%;
   margin-bottom: 0px;
 }
 .caroselp{
-  font-size: 20px;
+  font-size: 19px;
   margin: 40px;
+  margin-left: 20px;
  margin-bottom: 0px; 
 }
 .aboutp{
-  font-size: 18px;
-  margin: 20px;
+  font-size: 19px;
+  margin: 15px;
   margin-bottom: 20px;
   
 }
@@ -388,9 +389,9 @@ body{
   font-family: cursive;
 }
 .carosel{
-  width : 700%;
-  height: auto;
-  margin-top: 2%;
+  width : 500%;
+  height: 27%;
+  margin-top: 3%;
 }
 .caroselimage{
   width : 100%;
@@ -398,8 +399,8 @@ body{
 }
 .caroselimage1{
   width : 50%;
-  height: auto;
-  margin-top: 1;
+  height: 520px;
+  margin-top: 1%;
 }
 .caroselholder{
   width : 100%;
