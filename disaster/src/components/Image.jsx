@@ -58,7 +58,7 @@ const Image = () => {
       </Carousel.Item>
     </Carousel>
     <p className="caroselp">
-   <span>Welcome to SAFESPACE!!!</span><br/> <br/>
+   <span>Welcome to SAFESPACE!!!</span><br/> 
 
         Disasters, both natural and human-made,pose significant challenges to communities
        worldwide. Natural disasters, such as earthquakes floods, and hurricanes, often strike with little
@@ -66,9 +66,6 @@ warning, leaving devastation in their wake. On the other hand, human-made disast
 industrial accidents, terrorism, and large-scale environmental degradation, can disrupt lives and 
  economies in profound ways. At SafeSpace, our mission is to provide timely and accurate 
  information to help individuals and communities prepare for, respond to, and recover from these events.
- By fostering collaboration and resource sharing,we aim to build resilient communities capable of overcoming 
- any disaster that comes their way.
-
 
     </p>
     </div>
