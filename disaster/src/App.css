@@ -365,7 +365,7 @@ body{
 .caroselp{
   font-size: 20px;
   margin: 40px;
- margin-bottom: 40px; 
+ margin-bottom: 0px; 
 }
 .aboutp{
   font-size: 18px;
@@ -397,7 +397,7 @@ body{
   height : 500px
 }
 .caroselimage1{
-  width : 47%;
+  width : 50%;
   height: auto;
   margin-top: 1;
 }
