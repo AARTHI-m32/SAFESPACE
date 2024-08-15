@@ -363,14 +363,15 @@ body{
   margin-bottom: 0px;
 }
 .caroselp{
-  font-size: 19px;
+  font-size: 22px;
   margin: 40px;
   margin-left: 20px;
- margin-bottom: 0px; 
+ margin-top:60px
 }
 .aboutp{
   font-size: 19px;
-  margin: 15px;
+  padding-top: 20px;
+  margin: 35px;
   margin-bottom: 20px;
   
 }

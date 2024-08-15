@@ -58,7 +58,7 @@ const Image = () => {
       </Carousel.Item>
     </Carousel>
     <p className="caroselp">
-   <br/><span>Welcome to SAFESPACE!!!</span><br/><br/>
+   <span>Welcome to SAFESPACE!!!</span><br/> <br/>
 
         Disasters, both natural and human-made,pose significant challenges to communities
        worldwide. Natural disasters, such as earthquakes floods, and hurricanes, often strike with little
