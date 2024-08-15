@@ -361,17 +361,15 @@ body{
   margin : 40px;
   padding-bottom: 40px;
   margin-bottom: 0px;
-
 }
 .caroselp{
   font-size: 20px;
   margin: 40px;
- 
-  
+ margin-bottom: 40px; 
 }
 .aboutp{
   font-size: 18px;
-  margin: 30px;
+  margin: 20px;
   margin-bottom: 20px;
   
 }
@@ -398,7 +396,9 @@ body{
   height : 500px
 }
 .caroselimage1{
-  width : 50%;
+  width : 45%;
+  height: auto;
+  margin-top: 3%;
 }
 .caroselholder{
   width : 100%;

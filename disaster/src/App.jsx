@@ -23,6 +23,7 @@ import Earthquake from "./components/Earthquake";
 import Flood from "./components/Flood";
 
 //https://safespace-zjkg.onrender.com
+//https://safespace-rosy.vercel.app/
 const App = () => {
 
   const dispatch = useDispatch()
