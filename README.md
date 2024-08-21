@@ -44,6 +44,8 @@ Installation:
    npm run dev
 
 Screenshots:
+
+screenshots/s1.png
    
 Contact:
 
