@@ -42,10 +42,6 @@ Installation:
 4)Run the application:
 
    npm run dev
-
-Screenshots:
-
-screenshots/s1.png
    
 Contact:
 
