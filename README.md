@@ -27,7 +27,7 @@ Installation:
 
 1)Clone the repository
 
-   git clone 
+   git clone https://github.com/AARTHI-m32/SAFESPACE.git
 
 2)Install backend dependencies:
 
@@ -36,6 +36,7 @@ Installation:
 3)Install frontend dependencies:
 
    cd disaster
+   
    npm install
 
 4)Run the application:
