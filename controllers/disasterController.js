@@ -1,9 +1,42 @@
 const Volunteer = require('../models/volunteerModel')
 const Disaster = require('../models/disasterModel')
+const User =require('../models/userModel')
 const { v4 : uuidv4 } = require('uuid')
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+console.log(process.env.EMAIL_USER)
+
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,  // Your email
+        pass: process.env.EMAIL_PASS,  // App password (not regular password)
+    },
+});
+
+const sendDisasterAlert = async (toEmail, disaster) => {
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: toEmail,  // Recipient email
+        subject: "🚨 New Disaster Alert!",
+        text: `A new disaster (${disaster.name}) has been reported in ${disaster.city}.\n\nDescription: ${disaster.description}\n\nStay safe!`,
+    };
+
+    try {
+        await transporter.sendMail(mailOptions);
+        console.log(`✅ Email sent to ${toEmail}`);
+    } catch (error) {
+        console.error("❌ Error sending email:", error);
+    }
+};
+
 
 const addDisaster = async(req,res) => {
     try{
+
+        const users=await User.find({})
+
         const newDisaster = await Disaster.create({
             id : uuidv4(),
             userid : req.user.id,
@@ -19,6 +52,10 @@ const addDisaster = async(req,res) => {
             time : req.body.time,
             contactinfo : req.body.contact
         })
+
+        users.forEach((user) => {
+            sendDisasterAlert(user.email, newDisaster);
+        });
         res.status(201).json({
             message : "disaster created",
             Disaster : newDisaster

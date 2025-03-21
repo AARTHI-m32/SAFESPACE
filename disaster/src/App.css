@@ -1,65 +1,81 @@
 body{
   background-color:rgb(245, 237, 237);
 } 
- #home{
-    display: inline-block;
-    position: relative;
-    width: 100%;
-    font-size: 18px;
-    
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  padding: 15px 20px;
+  background-color: #222;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: cursive;
+  font-size: 18px;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0a500;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      font-family: cursive;
+      font-size: 18px;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 400px;
+      background-color: #222;
+      width: 100%;
+      padding: 20px;
   }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+}
+
+#headerlogo{
+  font-family: cursive;
+  font-size: 18px;
+}
+
   .image{
     width:100%;
     height:730px;
     filter:brightness(0.3);
     display: block;
   }
-  #homenav{
-      position: absolute;
-      top:1%;  
-      padding-top: 5px;
-      color:bisque;    
-   
-  }
-  #headernav{
-      padding: 7px;
-      color:bisque;    
-      background-color: black;
-      font-family: cursive;
-      font-size: 18px;
-  }
-  #homelogo{
-    margin-left: 20px;
-    font-size: 20px;
-  }
-  #headerlogo{
-    
-    margin-left: 20px;
-    font-size: 20px;
-  }
-  .navhome{
-    padding-top: 5px;
-    float:right;
-    color: beige;
-    text-decoration: none;
-    padding-left:60px;
-    padding-right: 5px;
-  }
-  .navhomeh{
-    padding-top: 5px;
-    float:right;
-    color: beige;
-    text-decoration: none;
-    padding-left:60px;
-    padding-right: 5px;
-  }
-  .navhomed{
-    text-decoration:none;
-    color: beige;
-  }
-  .navhome:hover{
-    color : orangered;
-  }
+  
+ 
+ 
   #hometext{
     position: absolute;
     font-size: 30px;

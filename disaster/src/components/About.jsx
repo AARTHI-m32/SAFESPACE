@@ -45,7 +45,7 @@ const About = () => {
         <div id="footer">
     <p >"The best way to find yourself is to lose yourself in the service of others." — Mahatma Gandhi</p>
     <p style={{color:"orangered"}}>For Administrative queries : National Health Mission,Ministry of Health & Family Welfare,New Delhi-110011.</p>
-    <p style={{color:"orangered"}}>Email : safespace@gmaiil.com</p>
+    <p style={{color:"orangered"}}>Email : safespace@gmail.com</p>
     <p style={{color:"orangered"}}>Contact Number : +91 9324232312</p>
      <p id="footerc">&copy; 2024 SAFESPACE. All Rights Reserved.</p>
     </div>

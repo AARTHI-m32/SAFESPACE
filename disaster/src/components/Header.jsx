@@ -5,8 +5,13 @@ import { setList } from '../redux/remainderSlice';
 import axios from 'axios';
 import { removeToken, setName } from '../redux/userSlice';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { FaBars, FaTimes } from "react-icons/fa";
+
 
 const Header = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
     const myList = useSelector(state => state.remainder.myList);
     const token = useSelector((state) => state.user.token);
     const username = useSelector((state) => state.user.name);
@@ -37,41 +42,33 @@ const Header = () => {
 
     return (
         <> 
-            <div id="headernav">               
-                <span id="headerlogo">SAFESPACE</span> 
-                {token ? (
-                    <Link to="/">
-                        <span className='navhome' style={{ paddingRight: '20px' }} onClick={handleLogout}>Logout</span>
-                    </Link>
-                ) : (
-                    <Link to="/login">
-                        <span className='navhome' style={{ paddingRight: '20px' }}>Login</span>
-                    </Link>
-                )}
-                <Link to="/profile">
-                    <span className="navhome">{token ? `${username}` : "Profile"}</span>
-                </Link>        
-                <Link to="/remainder">
-                    <span className="navhome">My Remainders! {myList.length}</span>
-                </Link>           
-                <Link to="/disaster">
-                    <span className="navhome">Disaster</span>
-                </Link>
-                <Link to="/about">
-                    <span className="navhome">About</span>
-                </Link>
+            <div id="headernav" className="navbar">
+                <span id="headerlogo">SAFESPACE</span>
+                
+                <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                    {menuOpen ? <FaTimes /> : <FaBars />}
+                </div>
 
-                <NavDropdown title="Safety Tips" id="basic-nav-dropdown" className="hover-dropdown">
-           
-                    <NavDropdown.Item ><Link to="/nature" className='navhomed'>Natural Disasters</Link></NavDropdown.Item>
-                  <NavDropdown.Item ><Link to="/fire" className='navhomed'>Fire Safety</Link></NavDropdown.Item>
-                  <NavDropdown.Item ><Link to="/earthquake" className='navhomed'>Earthquake</Link></NavDropdown.Item>
-                  <NavDropdown.Item ><Link to="/flood" className='navhomed'>Flood Safety</Link></NavDropdown.Item>
-                  <NavDropdown.Item ><Link to="/pandemic" className='navhomed'>Pandemic</Link></NavDropdown.Item>
-                  
-                </NavDropdown> 
+                <nav className={menuOpen ? "nav-links active" : "nav-links"}>
+                    {token ? (
+                        <Link to="/" onClick={handleLogout}>Logout</Link>
+                    ) : (
+                        <Link to="/login">Login</Link>
+                    )}
+                    <Link to="/profile">{token ? username : "Profile"}</Link>        
+                    <Link to="/remainder">My Remainders! {myList.length}</Link>           
+                    <Link to="/disaster">Disaster</Link>
+                    <Link to="/about">About</Link>
+
+                    <NavDropdown title="Safety Tips" id="basic-nav-dropdown" className="hover-dropdown">
+                        <NavDropdown.Item><Link to="/nature" className='navhomed'>Natural Disasters</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/fire" className='navhomed'>Fire Safety</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/earthquake" className='navhomed'>Earthquake</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/flood" className='navhomed'>Flood Safety</Link></NavDropdown.Item>
+                        <NavDropdown.Item><Link to="/pandemic" className='navhomed'>Pandemic</Link></NavDropdown.Item>
+                    </NavDropdown> 
+                </nav>
             </div>
-
            
         </>
     );
