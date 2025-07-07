@@ -39,7 +39,11 @@ const disasterSchema = new mongoose.Schema({
     verify : {
         type : Boolean,
         default : false
-    }
+    } ,
+    process : {
+        type : Boolean,
+        default : false
+    },
 })
 
 const Disaster = mongoose.model("disaster",disasterSchema)

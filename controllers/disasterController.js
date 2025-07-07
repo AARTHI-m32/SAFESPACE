@@ -5,7 +5,7 @@ const { v4 : uuidv4 } = require('uuid')
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-console.log(process.env.EMAIL_USER)
+//console.log(process.env.EMAIL_USER)
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -19,7 +19,7 @@ const sendDisasterAlert = async (toEmail, disaster) => {
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: toEmail,  // Recipient email
-        subject: "🚨 New Disaster Alert!",
+        subject: "🚨 New Disaster Alert! from SAFESPACE",
         text: `A new disaster (${disaster.name}) has been reported in ${disaster.city}.\n\nDescription: ${disaster.description}\n\nStay safe!`,
     };
 
@@ -69,7 +69,7 @@ const addDisaster = async(req,res) => {
 
 const getAllDisaster = async(req,res) => {
     try{
-       const disaster = await Disaster.find()
+       const disaster = await Disaster.find({process : false})
       res.status(200).json({
         message : "Fetched successfully",
         Disaster : disaster
@@ -97,6 +97,7 @@ const editDisaster = async(req,res) => {
             date : req.body.date,
             time : req.body.time,
             verify : req.body.verify,
+            process : req.body.process,
            }},
            {new : true}
         )

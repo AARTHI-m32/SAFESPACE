@@ -14,9 +14,14 @@ const Disastercard = (props) => {
 
     const dispatch = useDispatch();
 console.log("card",props.disaster)
+
+console.log("process",props.disaster.process)
+
 const token = useSelector((state) => state.user.token)
 const role= localStorage.getItem('role')
 console.log("role",role)
+
+
 const handleverify = async(id) => {
     const payload = {
         "verify" : true
@@ -48,6 +53,22 @@ const handleAdd = async() => {
     dispatch(addToMyList(props.disaster));
  
 }
+
+const handleDelete = async(id) => {
+           const payload = {
+        "process" : true
+    }
+    try{
+    const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${id}`,payload,{
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
+    console.log("process completed")}
+      catch(error){
+        console.log(error)
+      }
+}
     
 
   const lat=props.disaster.location.coordinates[1]
@@ -72,7 +93,10 @@ const handleAdd = async() => {
             <span id="author">Posted by,<br/> {props.disaster.name}</span>
             
            { role == 'admin' ? (
+            <>
             <button onClick={()=>handleverify(props.disaster.id)}>Verify</button>
+            <button onClick={()=>handleDelete(props.disaster.id)}>Delete</button>
+            </>
         ): (
             <>
         <button onClick={handleAdd}>Add to My List</button>

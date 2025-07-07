@@ -14,13 +14,14 @@ const Disasterform = ({ selectedDisaster }) => {
     date:'',
     time: '',
     status: '',
+   
   });
 
   const token = useSelector((state) => state.user.token);
 
   const [showMap, setShowMap] = useState(false);
 
-console.log("select",selectedDisaster)
+//console.log("select",selectedDisaster)
   const handleGetCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -72,6 +73,7 @@ console.log("select",selectedDisaster)
         date: '',
         time: selectedDisaster.time || '',
         status: selectedDisaster.status || '',
+        
       });
     }
   }, [selectedDisaster]);
@@ -87,8 +89,9 @@ console.log("select",selectedDisaster)
         date: formData.date,
         time: formData.time,
         status: formData.status || 'Emergency',
+        
       };
- console.log("pay;load",payload)
+ console.log("payload",payload)
     try{
       if(selectedDisaster ){
         const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${selectedDisaster.id}`,payload,{
