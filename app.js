@@ -13,7 +13,7 @@ const remainderRoutes  =require('./routes/remainderRoutes')
 
 app.set('view engine','ejs');
 
-mongoose.connect('mongodb+srv://aarthi32:Aarthi32@cluster0.grrieqs.mongodb.net/Disaster?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(process.env.mongouri)
 .then(() => {
     console.log("Mongodb connected")
 })
