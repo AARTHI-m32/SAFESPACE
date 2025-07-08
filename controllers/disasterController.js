@@ -68,10 +68,13 @@ const addDisaster = async(req,res) => {
 }
 
 const getAllDisaster = async(req,res) => {
+
+    const show = req.params.value;
     try{
-       const disaster = await Disaster.find({process : false}).sort({ _id: -1 })
+       const disaster = await Disaster.find({process : show}).sort({ _id: -1 })
       res.status(200).json({
         message : "Fetched successfully",
+        show : show,
         Disaster : disaster
     })}
     catch(error){

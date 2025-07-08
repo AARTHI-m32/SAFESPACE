@@ -16,6 +16,7 @@ const Disastercard = (props) => {
 console.log("card",props.disaster)
 
 console.log("process",props.disaster.process)
+console.log("Date",props.disaster.date.split("T")[0])
 
 const token = useSelector((state) => state.user.token)
 const role= localStorage.getItem('role')
@@ -82,7 +83,7 @@ const handleDelete = async(id) => {
           <span><b>Place : </b>{props.disaster.city}</span>
           <span><b>Requirements : </b><br/>{props.disaster.description}</span>
           <span><b>Contact Information : </b><br/> {props.disaster.contactinfo}</span>
-          <span><b>Date : </b>{props.disaster.date}</span>
+          <span><b>Date : </b>{props.disaster.date.split("T")[0]}</span>
           <span><b>Time : </b>{props.disaster.time}</span>
           <span><b>Location : </b><br/></span>
           <span>Click the coordinates below to view the location on Google Maps:</span>

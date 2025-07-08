@@ -21,8 +21,10 @@ const Disaster = () => {
         }
     }, [token]);
 
+    const value = false
+
    const getdisaster = async() => {
-    const res= await axios.get("https://safespace-zjkg.onrender.com/disaster/getalldisaster",{
+    const res= await axios.get(`https://safespace-zjkg.onrender.com/disaster/getalldisaster/${value}`,{
         headers : {
             Authorization : `Bearer ${token}`
         }

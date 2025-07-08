@@ -16,6 +16,7 @@ const Header = () => {
     const token = useSelector((state) => state.user.token);
     const username = useSelector((state) => state.user.name);
    const dispatch = useDispatch()
+   const role=localStorage.getItem('role')
     useEffect(()=>{
       if(token)
         listremainder()
@@ -55,8 +56,12 @@ const Header = () => {
                     ) : (
                         <Link to="/login">Login</Link>
                     )}
-                    <Link to="/profile">{token ? username : "Profile"}</Link>        
-                    <Link to="/remainder">My Remainders! {myList.length}</Link>           
+                    <Link to="/profile">{token ? username : "Profile"}</Link>   
+                    { role === 'admin' ? (
+                       <Link to="/completed">Past Details</Link> 
+                    )  :  (                       
+                       <Link to="/remainder">My Remainders! {myList.length}</Link> 
+                    )}          
                     <Link to="/disaster">Disaster</Link>
                     <Link to="/about">About</Link>
 

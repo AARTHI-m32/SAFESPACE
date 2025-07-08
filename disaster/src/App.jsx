@@ -21,7 +21,7 @@ import Nature from "./components/Nature";
 import Pandemic from "./components/Pandemic";
 import Earthquake from "./components/Earthquake";
 import Flood from "./components/Flood";
-
+import Completed from "./components/Completed";
 //https://safespace-zjkg.onrender.com
 //https://safespace-rosy.vercel.app/
 //https://safespace-aarthi-ms-projects.vercel.app/
@@ -47,6 +47,7 @@ const App = () => {
       <Route path="/disaster" element={<Disaster/>}/>
       <Route path="/volunteer" element={<VolunteerForm/>}/>
       <Route path="/remainder" element={<Remainder/>}/>
+      <Route path="/completed" element={<Completed/>}/>
       <Route path="/login" element={<Login/>}/>
       <Route path="/register" element={<Register/>}/>
       <Route path="/disasterform" element={<Disasterform/>}/>
