@@ -101,8 +101,8 @@ const handleDelete = async(id,lat,lng) => {
             
            { role == 'admin' ? (
             <>
-            <button onClick={()=>handleverify(props.disaster.id,lat,lng)}>Verify</button>
-            <button onClick={()=>handleDelete(props.disaster.id,lat,lng)}>Delete</button>
+            <button onClick={()=>handleverify(props.disaster.id,lng,lat)}>Verify</button>
+            <button onClick={()=>handleDelete(props.disaster.id,lng,lat)}>Delete</button>
             </>
         ): (
             <>

@@ -37,7 +37,7 @@ const Completed = () => {
                
                 details.map((i)=>{
                     {console.log("Location:", i.location)}
-                    const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[0]},${i.location.coordinates[1]}`;
+                    const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[1]},${i.location.coordinates[0]}`;
                     return(
                     <div key={i._id} className="disaster-card">
                         <h4><b>Disaster Type : </b>{i.disastertype}</h4>
