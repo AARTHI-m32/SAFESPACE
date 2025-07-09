@@ -34,8 +34,9 @@ const Completed = () => {
          <h3 className="profilehead">Posts</h3>
          <div className="disaster">
         { details && details.length > 0 ? (
-            
+               
                 details.map((i)=>{
+                    {console.log("Location:", i.location)}
                     const googleMapsUrl = `https://www.google.com/maps?q=${i.location.coordinates[0]},${i.location.coordinates[1]}`;
                     return(
                     <div key={i._id} className="disaster-card">

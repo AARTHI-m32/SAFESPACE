@@ -23,9 +23,12 @@ const role= localStorage.getItem('role')
 console.log("role",role)
 
 
-const handleverify = async(id) => {
+const handleverify = async(id,lat,lng) => {
     const payload = {
-        "verify" : true
+        "verify" : true,
+        "coordinates" : [
+          lng,lat
+        ]
     }
     try{
     const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${id}`,payload,{
@@ -55,9 +58,12 @@ const handleAdd = async() => {
  
 }
 
-const handleDelete = async(id) => {
+const handleDelete = async(id,lat,lng) => {
            const payload = {
-        "process" : true
+        "process" : true,
+        "coordinates" : [
+          lng,lat
+        ]
     }
     try{
     const edit = await axios.put(`https://safespace-zjkg.onrender.com/disaster/editdisaster/${id}`,payload,{
@@ -95,8 +101,8 @@ const handleDelete = async(id) => {
             
            { role == 'admin' ? (
             <>
-            <button onClick={()=>handleverify(props.disaster.id)}>Verify</button>
-            <button onClick={()=>handleDelete(props.disaster.id)}>Delete</button>
+            <button onClick={()=>handleverify(props.disaster.id,lat,lng)}>Verify</button>
+            <button onClick={()=>handleDelete(props.disaster.id,lat,lng)}>Delete</button>
             </>
         ): (
             <>

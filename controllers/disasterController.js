@@ -85,6 +85,7 @@ const getAllDisaster = async(req,res) => {
 
 const editDisaster = async(req,res) => {
     const did = req.params.disasterid
+    const [lng , lat] = req.body.coordinates;
      try{
         const editdisaster = await Disaster.findOneAndUpdate({id:did},
            { $set : {
@@ -93,7 +94,7 @@ const editDisaster = async(req,res) => {
             city : req.body.city,
             location: {
                 type: 'Point',
-                coordinates: req.body.coordinates,
+                coordinates:[lat,lng]
               },
             description : req.body.description,
             contactinfo : req.body.contact,
@@ -114,6 +115,8 @@ const editDisaster = async(req,res) => {
         res.status(500).json(error.message)
      }
 }
+
+
 
 const deletedisaster = async(req,res) => {
     try{
