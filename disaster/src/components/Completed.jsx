@@ -20,13 +20,13 @@ const Completed = () => {
             }
          }) 
          console.log("deleted")
-         getRemainder()
+         //getRemainder()
     }
     catch(error){
         console.log(error)
     }
    }
-   
+
     const getDetails = async() => {
         try{
             const res = await axios.get(`https://safespace-zjkg.onrender.com/disaster/getalldisaster/${value}`,{
