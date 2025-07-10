@@ -12,20 +12,19 @@ const Completed = () => {
         getDetails()
     },[role])
     
-     const handledelete = async(id) => {
-    try{
-         const deleted = await axios.delete(`https://safespace-zjkg.onrender.com/remainder/deleteremainder/${id}`,{
-            headers : {
-                Authorization : `Bearer ${token}`
-            }
-         }) 
-         console.log("deleted")
-         //getRemainder()
-    }
-    catch(error){
-        console.log(error)
-    }
-   }
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`https://safespace-zjkg.onrender.com/disaster/deletedisaster/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log("deleted");
+            //getProfile();
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const getDetails = async() => {
         try{
@@ -67,7 +66,7 @@ const Completed = () => {
                           </a>
               
                           <span id="author">Posted by,<br/> {i.name}</span>
-                          <button onClick={()=>handledelete(i.id)}>Delete</button>
+                          <button onClick={()=>handleDelete(i.id)}>Delete</button>
                     </div>
                  ) })
 ) :
