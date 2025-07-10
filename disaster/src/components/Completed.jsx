@@ -11,7 +11,22 @@ const Completed = () => {
     useEffect ( () => {
         getDetails()
     },[role])
-
+    
+     const handledelete = async(id) => {
+    try{
+         const deleted = await axios.delete(`https://safespace-zjkg.onrender.com/remainder/deleteremainder/${id}`,{
+            headers : {
+                Authorization : `Bearer ${token}`
+            }
+         }) 
+         console.log("deleted")
+         getRemainder()
+    }
+    catch(error){
+        console.log(error)
+    }
+   }
+   
     const getDetails = async() => {
         try{
             const res = await axios.get(`https://safespace-zjkg.onrender.com/disaster/getalldisaster/${value}`,{
