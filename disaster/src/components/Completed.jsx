@@ -10,6 +10,7 @@ const Completed = () => {
     const value= true
     useEffect ( () => {
         getDetails()
+        
     },[role])
     
     const handleDelete = async (id) => {

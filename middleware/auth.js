@@ -12,6 +12,7 @@ const auth = async(req,res,next) => {
   const token = authHeader.split(" ")[1];
   // const token = req.header("Authorization").split(" ")[1]
    if(!token)
+      
     return res.status(404).json("Token Required")
 
    try{
